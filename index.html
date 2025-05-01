@@ -16,15 +16,19 @@
 		</style>
 	</head>
 	<body
+		id="page-top"
+		style="scroll-margin-top: 80px"
 		class="bg-gradient-to-r from-zinc-950 to-gray-900 text-white max-w-6xl mx-auto"
 		x-data="{ mobileMenuOpen: false }"
 	>
+		<!-- Navigation Bar -->
 		<nav
-			class="sticky top-0 z-50 max-w-6xl mx-auto mt-6 p-3 border border-gray-700 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-between"
+			x-data="{ mobileMenuOpen: false }"
+			class="relative sticky top-0 z-50 max-w-6xl mx-auto mt-6 p-3 border border-gray-700 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-between"
 		>
 			<!-- Logo -->
 			<div class="flex items-center space-x-4">
-				<a href="index.html">
+				<a href="#page-top">
 					<img src="images/logo.webp" alt="uop-logo" class="h-10 w-10 rounded-full" />
 				</a>
 			</div>
@@ -38,11 +42,11 @@
 			</ul>
 
 			<!-- Right side icons -->
-			<div class="flex items-center space-x-4">
+			<div class="flex items-center space-x-4 md:hidden">
 				<!-- Hamburger for mobile -->
 				<button
 					@click="mobileMenuOpen = !mobileMenuOpen"
-					class="md:hidden p-2 rounded-lg border border-gray-600 hover:bg-gray-700"
+					class="p-2 rounded-lg border border-gray-600 hover:bg-gray-700"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +60,20 @@
 					</svg>
 				</button>
 			</div>
+
+			<!-- Mobile Menu (Dropdown) -->
+			<div
+				x-show="mobileMenuOpen"
+				x-transition
+				class="absolute top-full left-0 w-full bg-gray-800 border-t border-gray-700 rounded-b-2xl p-4 mt-2 md:hidden"
+			>
+				<ul class="flex flex-col space-y-4 text-sm font-semibold text-white">
+					<li><a href="#about" @click="mobileMenuOpen = false">About</a></li>
+					<li><a href="#guidelines" @click="mobileMenuOpen = false">Guidelines</a></li>
+					<li><a href="#committee" @click="mobileMenuOpen = false">Committee</a></li>
+					<li><a href="#contact" @click="mobileMenuOpen = false">Contact</a></li>
+				</ul>
+			</div>
 		</nav>
 
 		<!-- Mobile Menu -->
@@ -67,14 +85,40 @@
 		</div>
 
 		<!-- Hero Section -->
-		<section class="py-20">
-			<div class="max-w-6xl mx-auto text-center">
-				<h1 class="text-6xl font-bold mb-4">RESCON <span class="text-blue-400">2025</span></h1>
-				<p class="text-2xl text-gray-300 mb-2">The Premier Postgraduate Research Congress of Sri Lanka.</p>
-				<p class="text-s text-gray-300 mb-8">Postgraduate Institute of Science. University of Peradeniya</p>
-				<p class="text-3xl text-blue-400">November 7-8, 2025</p>
+		<section
+			id="hero"
+			class="min-h-[80vh] flex items-center justify-center text-white relative px-4 sm:px-8 md:px-20 py-10 overflow-hidden"
+		>
+			<div
+				class="flex flex-col items-center justify-center text-center space-y-8 md:items-start md:text-left md:space-y-0 md:block w-full"
+			>
+				<!-- RESCON 2025 Title -->
+				<div>
+					<h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold leading-none">
+						<span class="block bg-gradient-to-r from-white via-blue-400 to-white text-transparent bg-clip-text"
+							>RESCON</span
+						>
+						<span class="block bg-gradient-to-r from-blue-400 via-white to-blue-400 text-transparent bg-clip-text"
+							>2025</span
+						>
+					</h1>
+				</div>
+
+				<!-- Description Card -->
+				<div
+					class="mt-8 w-full sm:w-[90%] md:w-[50%] p-6 text-center md:absolute md:bottom-10 md:right-8 md:text-right"
+				>
+					<p class="text-lg sm:text-xl md:text-3xl text-gray-200 mb-2">
+						The Premier Postgraduate Research Congress of Sri Lanka.
+					</p>
+					<p class="text-sm md:text-base text-gray-400 mb-4">
+						Postgraduate Institute of Science. University of Peradeniya
+					</p>
+					<p class="text-lg md:text-2xl text-blue-400">November 7–8, 2025</p>
+				</div>
 			</div>
 		</section>
+
 
 		<hr class="border-t border-gray-700" />
 
