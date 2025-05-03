@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>RESCON Tabs</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+
+	<div class="container mx-auto px-4 py-10">
+		<!-- Tab Navigation -->
+		<div class="flex space-x-4 mb-8">
+			<button id="tab-guidelines-btn" class="tab-button bg-gray-700 text-white px-4 py-2 rounded" data-tab="guidelines">General Guidelines</button>
+			<button id="tab-templates-btn" class="tab-button bg-gray-300 text-black px-4 py-2 rounded" data-tab="templates">Templates</button>
+			<button id="tab-submit-btn" class="tab-button bg-gray-300 text-black px-4 py-2 rounded" data-tab="submit">Submit Abstract</button>
+		</div>
+
+		<!-- Tab Content -->
+		<section id="guidelines" class="tab-content block">
+			<h3 class="text-xl font-bold mb-6">General Guidelines</h3>
+			<p class="text-slate-400 mb-4">Please read the abstract submission guidelines below...</p>
+			<div class="space-y-3">
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">Abstract Guidelines</button>
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Submission Checklist</button>
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Author Declaration Form</button>
+			</div>
+		</section>
+
+		<section id="templates" class="tab-content hidden">
+			<h3 class="text-xl font-bold mb-6">Templates</h3>
+			<p class="text-slate-400 mb-4">Kindly use the following templates...</p>
+			<div class="space-y-3">
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">Abstract Template</button>
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Extended Abstract Template</button>
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Camera Ready Guidelines</button>
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Camera Ready Template</button>
+			</div>
+		</section>
+
+		<section id="submit" class="tab-content hidden">
+			<h3 class="text-xl font-bold mb-6">Submit a Abstract</h3>
+			<p class="text-slate-400 mb-4">Before you submit the abstract, be sure that...</p>
+			<div class="space-y-3">
+				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">Submit a Abstract</button>
+			</div>
+		</section>
+	</div>
+
+	<!-- JavaScript -->
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const tabButtons = document.querySelectorAll(".tab-button");
+			const tabContents = document.querySelectorAll(".tab-content");
+
+			tabButtons.forEach(button => {
+				button.addEventListener("click", () => {
+					const target = button.getAttribute("data-tab");
+
+					// Hide all content sections
+					tabContents.forEach(content => content.classList.add("hidden"));
+					// Show the selected tab
+					document.getElementById(target).classList.remove("hidden");
+
+					// Reset all button styles
+					tabButtons.forEach(btn => {
+						btn.classList.remove("bg-gray-700", "text-white");
+						btn.classList.add("bg-gray-300", "text-black");
+					});
+
+					// Highlight the active button
+					button.classList.remove("bg-gray-300", "text-black");
+					button.classList.add("bg-gray-700", "text-white");
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>
