@@ -45,39 +45,7 @@
 		class="relative bg-gradient-to-r from-zinc-950 to-gray-900 text-white max-w-6xl mx-auto z-10"
 		x-data="{ mobileMenuOpen: false }"
 	>
-		<!-- Smooth Background Crossfade -->
-		<div
-			x-data="{
-		images: ['/images/PGIS (1).webp', '/images/PGIS (2).webp'],
-		currentIndex: 0,
-		nextIndex: 1,
-		showFirst: true,
-		startRotation() {
-			setInterval(() => {
-				this.showFirst = !this.showFirst;
-				this.currentIndex = this.showFirst ? 0 : 1;
-				this.nextIndex = this.showFirst ? 1 : 0;
-			}, 5000);
-		}
-	}"
-			x-init="startRotation"
-			class="fixed inset-0 z-0 pointer-events-none"
-			aria-hidden="true"
-		>
-			<!-- First image -->
-			<img
-				:src="images[0]"
-				class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-				:class="showFirst ? 'opacity-10' : 'opacity-0'"
-			/>
-
-			<!-- Second image -->
-			<img
-				:src="images[1]"
-				class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-				:class="!showFirst ? 'opacity-10' : 'opacity-0'"
-			/>
-		</div>
+	
 
 		<!-- Navigation Bar -->
 		<nav
@@ -301,7 +269,7 @@
 			</h2>
 
 			<div
-				class="bg-zinc-900 bg-opacity-60 border border-zinc-700 rounded-2xl shadow-xl p-8 sm:p-10 max-w-4xl mx-auto text-slate-300 space-y-6 backdrop-blur-sm"
+				class="bg-zinc-900  bg-opacity-60 border border-zinc-700 rounded-2xl shadow-xl p-8 sm:p-10 max-w-4xl mx-auto text-slate-300 space-y-6 backdrop-blur-sm"
 			>
 				<p>
 					The <strong class="text-white">PGIS Research Congress</strong> is the major annual research conference of the
@@ -352,57 +320,181 @@
 					in person, and requests for online presentations will be considered under special circumstances, particularly
 					for international presenters.
 				</p>
+
+				<!-- Abstract Submission Section -->
+
+				
+
+				<div class="max-w-6xl mx-auto px-4 py-10">
+					<div
+						class="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-800 via-gray-900 to-black backdrop-blur-lg border border-gray-700 text-gray-200"
+					>
+						<!-- Left Panel: Vertical Tabs -->
+						<div
+							class="w-full md:w-2/5 min-w-[240px] bg-gradient-to-b from-gray-900 to-gray-800 border-b md:border-b-0 md:border-r border-gray-700 p-6 space-y-3"
+						>
+							<button
+								data-tab="tab1"
+								class="tab-button group w-full flex items-center gap-3 px-4 py-3 rounded-xl transition bg-blue-600 text-white shadow-lg hover:shadow-xl hover:scale-105"
+							>
+								<svg
+									class="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M12 12H6a2 2 0 01-2-2V6m8 6h6a2 2 0 002-2V6m-8 6v6m0-6V6"
+									/>
+								</svg>
+								<span class="font-medium">General Guidelines</span>
+							</button>
+
+							<button
+								data-tab="tab2"
+								class="tab-button group w-full flex items-center gap-3 px-4 py-3 rounded-xl transition bg-gray-700 hover:bg-blue-500 hover:text-white shadow-lg hover:shadow-xl hover:scale-105"
+							>
+								<svg
+									class="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M7 8h10M7 12h10m-6 4h6M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"
+									/>
+								</svg>
+								<span class="font-medium">Templates</span>
+							</button>
+
+							<button
+								data-tab="tab3"
+								class="tab-button group w-full flex items-center gap-3 px-4 py-3 rounded-xl transition bg-gray-700 hover:bg-blue-500 hover:text-white shadow-lg hover:shadow-xl hover:scale-105"
+							>
+								<svg
+									class="w-5 h-5 shrink-0 group-hover:scale-110 transition-transform"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5 5 5M12 5v11"
+									/>
+								</svg>
+								<span class="font-medium">Submit Abstract</span>
+							</button>
+						</div>
+
+						<!-- Right Panel: Content -->
+						<div class="w-full md:w-3/5 p-8">
+							<!-- Tab 1 -->
+							<section id="tab1" class="tab-content space-y-6">
+								<h3 class="text-2xl font-semibold text-blue-400">General Guidelines</h3>
+								<p class="text-gray-400">Please read the abstract submission guidelines below...</p>
+								<div class="flex flex-col gap-4">
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white text-sm shadow-lg hover:shadow-xl"
+									>
+										Abstract Guidelines
+									</button>
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white text-sm shadow-lg hover:shadow-xl"
+									>
+										Submission Checklist
+									</button>
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white text-sm shadow-lg hover:shadow-xl"
+									>
+										Author Declaration Form
+									</button>
+								</div>
+							</section>
+
+							<!-- Tab 2 -->
+							<section id="tab2" class="tab-content hidden space-y-6">
+								<h3 class="text-2xl font-semibold text-blue-400">Templates</h3>
+								<p class="text-gray-400">Kindly use the following templates...</p>
+								<div class="flex flex-col gap-4">
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white shadow-lg text-sm hover:shadow-xl"
+									>
+										Abstract Template
+									</button>
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white shadow-lg text-sm hover:shadow-xl"
+									>
+										Extended Abstract Template
+									</button>
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white shadow-lg text-sm hover:shadow-xl"
+									>
+										Camera Ready Guidelines
+									</button>
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white shadow-lg text-sm hover:shadow-xl"
+									>
+										Camera Ready Template
+									</button>
+								</div>
+							</section>
+
+							<!-- Tab 3 -->
+							<section id="tab3" class="tab-content hidden space-y-6">
+								<h3 class="text-2xl font-semibold text-blue-400">Submit Abstract</h3>
+								<p class="text-gray-400">Before you submit the abstract, be sure that...</p>
+								<div class="flex flex-col gap-4">
+									<button
+										class="bg-gray-700 hover:bg-blue-600 transition px-5 py-3 rounded-xl text-white text-sm shadow-lg hover:shadow-xl"
+									>
+										Submit Abstract
+									</button>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<hr class="border-t border-gray-700" />
 
-		<!-- Abstract Submission Section -->
+		<!-- JavaScript -->
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const tabButtons = document.querySelectorAll(".tab-button");
+				const tabContents = document.querySelectorAll(".tab-content");
 
+				tabButtons.forEach((button) => {
+					button.addEventListener("click", () => {
+						const target = button.getAttribute("data-tab");
 
-		<div class="container mx-auto px-4 py-10">
-			<!-- Tab Navigation -->
-			<div class="flex space-x-4 mb-8">
-				<button id="tab-guidelines-btn" class="tab-button bg-gray-700 text-white px-4 py-2 rounded" data-tab="general-guidelines-tab">General Guidelines</button>
-				<button id="tab-templates-btn" class="tab-button bg-gray-300 text-black px-4 py-2 rounded" data-tab="templates-tab">Templates</button>
-				<button id="tab-submit-btn" class="tab-button bg-gray-300 text-black px-4 py-2 rounded" data-tab="submit-tab">Submit Abstract</button>
-			</div>
-	
-			<!-- Tab Content -->
-			<section id="general-guidelines-tab" class="tab-content ">
-				<h3 class="text-xl font-bold mb-6">General Guidelines</h3>
-				<p class="text-slate-400 mb-4">Please read the abstract submission guidelines below...</p>
-				<div class="space-y-3">
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">Abstract Guidelines</button>
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Submission Checklist</button>
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Author Declaration Form</button>
-				</div>
-			</section>
-	
-			<section id="templates-tab" class="tab-content hidden">
-				<h3 class="text-xl font-bold mb-6">Templates</h3>
-				<p class="text-slate-400 mb-4">Kindly use the following templates...</p>
-				<div class="space-y-3">
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">Abstract Template</button>
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Extended Abstract Template</button>
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Camera Ready Guidelines</button>
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">Camera Ready Template</button>
-				</div>
-			</section>
-	
-			<section id="submit-tab" class="tab-content hidden">
-				<h3 class="text-xl font-bold mb-6">Submit a Abstract</h3>
-				<p class="text-slate-400 mb-4">Before you submit the abstract, be sure that...</p>
-				<div class="space-y-3">
-					<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">Submit a Abstract</button>
-				</div>
-			</section>
-		</div>
-	
-		
+						// Hide all content sections
+						tabContents.forEach((content) => content.classList.add("hidden"));
+						// Show the selected tab
+						document.getElementById(target).classList.remove("hidden");
 
-		
-	
+						// Reset all button styles
+						tabButtons.forEach((btn) => {
+							btn.classList.remove("bg-gray-700", "text-white");
+							btn.classList.add("bg-gray-300", "text-black");
+						});
+
+						// Highlight the active button
+						button.classList.remove("bg-gray-300", "text-black");
+						button.classList.add("bg-gray-700", "text-white");
+					});
+				});
+			});
+		</script>
 
 		<!-- Registration Information Section -->
 		<section class="py-20">
@@ -641,35 +733,39 @@
 		<p class="text-slate-200 text-sm">Copyright © PGIS 2025</p>
 
 
+			<!-- Smooth Background Crossfade -->
+			<div
+			x-data="{
+		images: ['/images/PGIS (1).webp', '/images/PGIS (2).webp'],
+		currentIndex: 0,
+		nextIndex: 1,
+		showFirst: true,
+		startRotation() {
+			setInterval(() => {
+				this.showFirst = !this.showFirst;
+				this.currentIndex = this.showFirst ? 0 : 1;
+				this.nextIndex = this.showFirst ? 1 : 0;
+			}, 5000);
+		}
+	}"
+			x-init="startRotation"
+			class="fixed inset-0 z-0 pointer-events-none"
+			aria-hidden="true"
+		>
+			<!-- First image -->
+			<img
+				:src="images[0]"
+				class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+				:class="showFirst ? 'opacity-10' : 'opacity-0'"
+			/>
 
-		<!-- JavaScript -->
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-			const tabButtons = document.querySelectorAll(".tab-button");
-			const tabContents = document.querySelectorAll(".tab-content");
-
-			tabButtons.forEach(button => {
-				button.addEventListener("click", () => {
-					const target = button.getAttribute("data-tab");
-
-					// Hide all content sections
-					tabContents.forEach(content => content.classList.add("hidden"));
-					// Show the selected tab
-					document.getElementById(target).classList.remove("hidden");
-
-					// Reset all button styles
-					tabButtons.forEach(btn => {
-						btn.classList.remove("bg-gray-700", "text-white");
-						btn.classList.add("bg-gray-300", "text-black");
-					});
-
-					// Highlight the active button
-					button.classList.remove("bg-gray-300", "text-black");
-					button.classList.add("bg-gray-700", "text-white");
-				});
-			});
-		});
-	</script>
+			<!-- Second image -->
+			<img
+				:src="images[1]"
+				class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+				:class="!showFirst ? 'opacity-10' : 'opacity-0'"
+			/>
+		</div>
 
 
 	</body>
