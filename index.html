@@ -1,512 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>RESCON2025 | PGIS</title>
-		<!-- Tailwind CDN -->
-		<script src="https://cdn.tailwindcss.com"></script>
-		<!-- Alpine.js CDN -->
-		<script src="//unpkg.com/alpinejs" defer></script>
 
-		<link rel="icon" href="/images/logo.webp" type="image/x-icon" />
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RESCON | PGIS</title>
+	<!-- Tailwind CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Alpine.js CDN -->
+	<script src="//unpkg.com/alpinejs" defer></script>
+</head>
 
-		<style>
-			html {
-				scroll-behavior: smooth;
-			}
-		</style>
-	</head>
+<body class="bg-gray-900 text-white">
+	<!-- Banner -->
+	<div x-data="{ show: true }" x-show="show" x-transitio n
+		class="fixed inset-x-0 bottom-0 z-auto flex items-center justify-between border-t border-gray-200 bg-amber-200 px-4 py-2 text-gray-900">
+		<span></span>
 
-	<body
-		id="page-top"
-		style="scroll-margin-top: 80px"
-		class="bg-gradient-to-r from-zinc-950 to-gray-900 text-white max-w-6xl mx-auto"
-		x-data="{ mobileMenuOpen: false }"
-	>
-		<!-- Navigation Bar -->
-		<nav
-			x-data="{ mobileMenuOpen: false }"
-			class="relative sticky top-0 z-50 max-w-6xl mx-auto mt-6 p-3 border border-gray-700 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-between"
-		>
-			<!-- Logo -->
-			<div class="flex items-center space-x-4">
-				<a href="#page-top">
-					<img src="images/logo.webp" alt="uop-logo" class="h-10 w-10 rounded-full" />
+		<p class="text-center font-medium">
+			Announcing our 2<sup>nd</sup> Pre-Conference Talk.
+			<a href="workshops" class="inline-block underline"> Read More</a>
+		</p>
+
+		<button type="button" aria-label="Dismiss" @click="show = false"
+			class="rounded border border-gray-300 bg-white p-1.5 shadow-sm transition-colors hover:bg-gray-50">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+				stroke="currentColor" class="size-5">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</div>
+
+	<!-- Navigation Bar -->
+	<header class="absolute inset-x-0 top-0 z-50">
+
+		<nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+
+			<div class="flex lg:flex-1">
+				<a href="#" class="-m-1.5 p-1.5">
+					<img class="h-8 w-auto" src="/images/logo.webp" alt="">
 				</a>
 			</div>
-
-			<!-- Desktop Menu -->
-			<ul class="hidden md:flex space-x-6 text-sm font-semibold ml-auto mr-4">
-				<li><a href="#about" class="hover:text-gray-300">About</a></li>
-				<li><a href="#guidelines" class="hover:text-gray-300">Guidelines</a></li>
-				<li><a href="#committee" class="hover:text-gray-300">Committee</a></li>
-				<li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
-			</ul>
-
-			<!-- Right side icons -->
-			<div class="flex items-center space-x-4 md:hidden">
-				<!-- Hamburger for mobile -->
-				<button
-					@click="mobileMenuOpen = !mobileMenuOpen"
-					class="p-2 rounded-lg border border-gray-600 hover:bg-gray-700"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-5 w-5"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+			<div class="flex lg:hidden">
+				<button type="button"
+					class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+					<span class="sr-only">Open main menu</span>
+					<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+						aria-hidden="true" data-slot="icon">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 					</svg>
 				</button>
 			</div>
-
-			<!-- Mobile Menu (Dropdown) -->
-			<div
-				x-show="mobileMenuOpen"
-				x-transition
-				class="absolute top-full left-0 w-full bg-gray-800 border-t border-gray-700 rounded-b-2xl p-4 mt-2 md:hidden"
-			>
-				<ul class="flex flex-col space-y-4 text-sm font-semibold text-white">
-					<li><a href="#about" @click="mobileMenuOpen = false">About</a></li>
-					<li><a href="#guidelines" @click="mobileMenuOpen = false">Guidelines</a></li>
-					<li><a href="#committee" @click="mobileMenuOpen = false">Committee</a></li>
-					<li><a href="#contact" @click="mobileMenuOpen = false">Contact</a></li>
-				</ul>
+			<div class="hidden lg:flex lg:gap-x-12">
+				<a href="#about" class="text-sm/6 font-semibold text-gray-900">About</a>
+				<a href="#guidelines" class="text-sm/6 font-semibold text-gray-900">Guidelines</a>
+				<a href="#committee" class="text-sm/6 font-semibold text-gray-900">Committee</a>
+				<a href="#footer" class="text-sm/6 font-semibold text-gray-900">Contact </a>
+			</div>
+			<div class="hidden lg:flex lg:flex-1">
+				<a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span
+						aria-hidden="true">&rarr;</span></a>
 			</div>
 		</nav>
+		<!-- Mobile menu, show/hide based on menu open state. -->
+		<!-- <div class="lg:hidden" role="dialog" aria-modal="true">
+			<div class="fixed inset-0 z-50"></div>
+			<div
+				class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+				<div class="flex items-center justify-between ">
+					<a href="#" class="-m-1.5 p-1.5">
+						<span class="sr-only">Your Company</span>
+						<img class="h-8 w-auto" src="/images/logo.webp" alt="" />
+					</a>
+					<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+						<span class="sr-only">Close menu</span>
+						<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+							aria-hidden="true" data-slot="icon">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</div>
+				<div class="mt-6 flow-root">
+					<div class="-my-6 divide-y divide-gray-500/10">
+						<div class="space-y-2 py-6">
+							<a href="#"
+								class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
+							<a href="#"
+								class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+							<a href="#"
+								class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+							<a href="#"
+								class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+						</div>
 
-		<!-- Mobile Menu -->
-		<div x-show="mobileMenuOpen" x-cloak id="mobile-menu" class="md:hidden mt-2 px-4 space-y-2 text-center">
-			<a href="#about" class="block py-2 hover:text-gray-300">About</a>
-			<a href="#guidelines" class="block py-2 hover:text-gray-300">Guidelines</a>
-			<a href="#committee" class="block py-2 hover:text-gray-300">Committee</a>
-			<a href="#contact" class="block py-2 hover:text-gray-300">Contact</a>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	</header>
+
+	<!-- Hero Section -->
+	<section class="bg-white pt-10  min-h-screen text-center">
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#fff7ed_0%,_transparent_60%)]">
 		</div>
 
-		<!-- Hero Section -->
-		<section
-			id="hero"
-			class="min-h-[80vh] flex items-center justify-center text-white relative px-4 sm:px-8 md:px-20 py-10 overflow-hidden"
-		>
-			<div
-				class="flex flex-col items-center justify-center text-center space-y-8 md:items-start md:text-left md:space-y-0 md:block w-full"
-			>
-				<!-- RESCON 2025 Title -->
-				<div>
-					<h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold leading-none">
-						<span class="block bg-gradient-to-r from-white via-blue-400 to-white text-transparent bg-clip-text"
-							>RESCON</span
-						>
-						<span class="block bg-gradient-to-r from-blue-400 via-white to-blue-400 text-transparent bg-clip-text"
-							>2025</span
-						>
+
+
+		<div class="relative isolate px-6 pt-14 lg:px-8">
+			<div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+				aria-hidden="true">
+				<div class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
+					style="
+							clip-path: polygon(
+								74.1% 44.1%,
+								100% 61.6%,
+								97.5% 26.9%,
+								85.5% 0.1%,
+								80.7% 2%,
+								72.5% 32.5%,
+								60.2% 62.4%,
+								52.4% 68.1%,
+								47.5% 58.3%,
+								45.2% 34.5%,
+								27.5% 76.7%,
+								0.1% 64.9%,
+								17.9% 100%,
+								27.6% 76.8%,
+								76.1% 97.7%,
+								74.1% 44.1%
+							);
+						"></div>
+			</div>
+			<div class="mx-auto max-w-2xl py-56">
+				<div class="text-center">
+					<h1 class="text-5xl sm:text-7xl font-semibold tracking-tight text-balance text-gray-900">
+						<span class="font-bolt">RESCON</span> <span class="text-orange-500">2025</span>
 					</h1>
+
+					<p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+						Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit
+						sunt amet
+						fugiat veniam occaecat.
+					</p>
+					<div class="mt-10 flex items-center justify-center gap-x-6">
+						<a href="#"
+							class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
+							started</a>
+						<a href="#" class="text-sm/6 font-semibold text-gray-900">Learn more <span
+								aria-hidden="true">→</span></a>
+					</div>
+				</div>
+			</div>
+			<div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+				aria-hidden="true">
+				<div class="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"
+					style="
+							clip-path: polygon(
+								74.1% 44.1%,
+								100% 61.6%,
+								97.5% 26.9%,
+								85.5% 0.1%,
+								80.7% 2%,
+								72.5% 32.5%,
+								60.2% 62.4%,
+								52.4% 68.1%,
+								47.5% 58.3%,
+								45.2% 34.5%,
+								27.5% 76.7%,
+								0.1% 64.9%,
+								17.9% 100%,
+								27.6% 76.8%,
+								76.1% 97.7%,
+								74.1% 44.1%
+							);
+						"></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="overflow-hidden bg-white pt-24 ">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto  max-w-2xl  lg:mx-0 lg:max-w-none ">
+				<div class="">
+					<div class="">
+						<h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+							About</h2>
+						<p class="mt-6 text-lg/8 text-gray-600">The PGIS Research Congress is the major annual research
+							conference of the Postgraduate Institute of Science. The congress provides an excellent
+							platform to share knowledge and network with scientists across the country and abroad
+							through the presentation of cutting-edge research.
+						</p>
+						<p class="mt-6 text-lg/8 text-gray-600">
+							The Congress will be held on the <b class="underline decoration-2 decoration-amber-500">7th
+								and 8th of November 2025</b>. The Inauguration Ceremony,
+							together with the keynote speech by a distinguished scientist, will be held on the 7th of
+							November.
+						</p>
+						<p class="mt-6 text-lg/8 text-gray-600">
+
+							Technical Sessions of RESCON 2025 will be held on 7th, and 8th of November at the PGIS, and
+							international participants will attend online.
+						</p>
+
+					</div>
 				</div>
 
-				<!-- Description Card -->
-				<div
-					class="mt-8 w-full sm:w-[90%] md:w-[50%] p-6 text-center md:absolute md:bottom-10 md:right-8 md:text-right"
-				>
-					<p class="text-lg sm:text-xl md:text-3xl text-gray-200 mb-2">
-						The Premier Postgraduate Research Congress of Sri Lanka.
+			</div>
+		</div>
+	</section>
+
+
+	<!--Endorsement  -->
+	<div class="overflow-hidden bg-white px-6 py-16 lg:px-8] pb-24">
+		<div class="mx-auto max-w-2xl lg:max-w-4xl ">
+			<figure class="mt-10">
+				<blockquote class="text-center text-xl/8 font-semibold text-gray-900 sm:text-2xl/9 ">
+					<p>
+						“I encourage you to join PGIS RESCON 2025 at the University of Peradeniya on November 7th and
+						8th for a multidisciplinary research congress uniting innovations in AI, environmental sciences,
+						life sciences, and more. Present your research and connect with leading researchers shaping the
+						future of science.”
 					</p>
-					<p class="text-sm md:text-base text-gray-400 mb-4">
-						Postgraduate Institute of Science. University of Peradeniya
-					</p>
-					<p class="text-lg md:text-2xl text-blue-400">November 7–8, 2025</p>
+				</blockquote>
+				<figcaption class="mt-10">
+					<img class="mx-auto size-40 rounded-full" src="images/MJA.jpg" alt="">
+					<p class="text-center mx-auto font-semibold text-gray-900">Matthew J. Allen, Ph.D.</p>
+					<p class="text-center text-gray-600">Professor and Chair, Department of Chemistry, Wayne State
+						University</p>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+
+	<!-- Guidelines -->
+	<section id="guidelines" class="overflow-hidden bg-white py-24">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto  max-w-2xl  lg:mx-0 lg:max-w-none ">
+				<h2 class="mt-2 text-2xl font-semibold tracking-tight text-pretty text-gray-900">
+					Abstract Submission Guidelines</h2>
+				<p class="mt-6 text-lg/8 text-gray-600">
+
+					Abstract submission will start on the 10<sup>th</sup> April of 2025 and end on 30<sup>th</sup> June
+					of 2025.
+					Notification of Acceptance will be sent on 30<sup>th</sup> July of 2025 .
+				</p>
+				<p class="mt-6 text-lg/8 text-gray-600">
+					Please read the General Guidelines carefully, and make sure to use the templates provided for both
+					the
+					abstract and the extended abstract.
+					We are committed to hosting the conference in-person and requests for online presentations will be
+					considered
+					under special circumstances, particularly for international presenters.
+				</p>
+
+				<div x-data="{ tab: 1 }" class=" w-full py-10 flex flex-wrap flex-col text-gray-600">
+
+					<!-- Tabs -->
+					<div class="flex mx-auto mb-5 justify-between w-full">
+						<button @click="tab = 1"
+							:class="tab === 1 ? 'border-indigo-500 text-indigo-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'"
+							class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							General Guidelines
+						</button>
+						<button @click="tab = 2"
+							:class="tab === 2 ? 'border-indigo-500 text-indigo-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'"
+							class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Templates
+						</button>
+						<button @click="tab = 3"
+							:class="tab === 3 ? 'border-indigo-500 text-indigo-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'"
+							class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Submit an Abstract
+						</button>
+					</div>
+
+
+					<!-- Content 1 -->
+					<div x-show="tab === 1">
+						<p>Please read the abstract submission
+							guidelines below. Since we get more than 200 abstracts for each RESCON, we want to
+							streamline the process so that it is easier for the reviewers.</p>
+						<p class="pt-5">For RESCON 2024, we will process the
+							submitted abstract and make sure they are ready for review process, this will be done by our
+							editorial assistants.</p>
+						<div class="text-center">
+							<a href="docs/General guidelines.pdf"
+								class="inline-block px-4 py-2 border border-slate-200 rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200  mt-4  w-full">
+								Abstract Guidelines
+							</a>
+							<a href="docs/Submission checklist.pdf"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Submission Checklist
+							</a>
+							<a href="docs/Author declaration form.pdf"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Author Declaration Form
+							</a>
+						</div>
+					</div>
+
+					<!-- Content 2 -->
+					<div x-show="tab === 2">
+						<p>Download the official abstract and poster
+							templates here.</p>
+						<div class="text-center">
+							<a href="docs/Abstract template.pdf"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Abstract Template
+							</a>
+							<a href="docs/Extended abstract template.pdf"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Extended Abstract Template
+							</a>
+							<a href="docs/Camera ready guidelines.pdf"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Camera Ready Guidelines
+							</a>
+							<a href="docs/Camera ready template.pdf"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Camera Ready Template
+							</a>
+						</div>
+					</div>
+
+					<!-- Content 3 -->
+					<div x-show="tab === 3">
+						<p>Use the portal below to submit your
+							abstract. You will receive a confirmation email after submission.</p>
+						<ul role="list" class="py-8 space-y-2 text-gray-600">
+							<li class="flex gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-checks">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M7 12l5 5l10 -10" />
+									<path d="M2 12l5 5m5 -5l5 -5" />
+								</svg>
+
+								<span> You have the abstract with you as an MS Word document prepared according to the
+									template.</span>
+							</li>
+							<li class="flex gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="icon icon-tabler icons-tabler-outline icon-tabler-checks">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M7 12l5 5l10 -10" />
+									<path d="M2 12l5 5m5 -5l5 -5" />
+								</svg>
+
+								<span>You have the extended abstract with you as an MS Word document prepared according
+									to the template.</span>
+							</li>
+
+						</ul>
+						<div class="text-center border-t-2 ">
+							<a href="https://cmt3.research.microsoft.com/RESCON2025"
+								class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Submit an Abstract
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
+
+	<!-- Pricing -->
+	<section class="bg-white py-24">
+		<div class="text-gray-600 body-font">
+			<div class="container px-5  mx-auto">
+				<div class="flex flex-col text-center w-full mb-20">
+					<h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Registration Information
+					</h1>
+					<p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+						Find the appropriate registration category below and make sure to register early to take
+						advantage of the early bird window.
+					</p>
+				</div>
+
+				<div x-data="{ plan: 'early' }" class="max-w-md mx-auto mt-10">
+
+					<!-- Toggle Buttons -->
+					<div class="flex border-2 border-indigo-500 rounded overflow-hidden w-fit mx-auto mb-6">
+						<button :class="plan === 'early' ? 'bg-indigo-500 text-white' : 'text-indigo-500'"
+							class="py-1 px-4 font-medium focus:outline-none transition" @click="plan = 'early'">
+							Early Bird
+						</button>
+						<button :class="plan === 'regular' ? 'bg-indigo-500 text-white' : 'text-indigo-500'"
+							class="py-1 px-4 font-medium focus:outline-none transition" @click="plan = 'regular'">
+							Regular
+						</button>
+					</div>
+
+					<!-- Card -->
+					<div class="border rounded-xl p-6 bg-white shadow-lg transition-all duration-500 relative overflow-hidden"
+						x-transition.opacity x-bind:key="plan">
+						<!-- Icon -->
+						<div class="text-indigo-500 mb-4">
+							<svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2"
+								viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M12 11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm0 0c0 1.657 2.343 3 5 3s5-1.343 5-3-2.343-3-5-3-5 1.343-5 3zM5 20h14a2 2 0 002-2v-5a9 9 0 00-9-9H9a9 9 0 00-9 9v5a2 2 0 002 2z" />
+							</svg>
+						</div>
+
+						<!-- Title -->
+						<h2 class="text-2xl font-bold mb-1 text-gray-800">Local Students</h2>
+						<p class="text-sm text-gray-500 mb-4"
+							x-text="plan === 'early' ? 'Register before October 15, 2025 to get a discounted rate.' : 'Register before October 31, 2025 at the standard rate.'">
+						</p>
+
+						<!-- Price Display -->
+						<div class="text-3xl font-bold text-indigo-600 mb-2"
+							x-text="plan === 'early' ? 'Rs. 2000' : 'Rs. 2500'"></div>
+						<template x-if="plan === 'regular'">
+							<div class="text-gray-400 line-through mb-4">Rs. 2000</div>
+						</template>
+					</div>
+				</div>
+				<div x-data="{ plan: 'early' }" class="max-w-4xl mx-auto">
+
+					<!-- Toggle Buttons -->
+					<div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden mt-6 w-fit">
+						<button :class="plan === 'early' ? 'bg-indigo-500 text-white' : 'text-indigo-500'"
+							class="py-1 px-4 focus:outline-none" @click="plan = 'early'">
+							Early Bird Registration
+						</button>
+						<button :class="plan === 'regular' ? 'bg-indigo-500 text-white' : 'text-indigo-500'"
+							class="py-1 px-4 focus:outline-none" @click="plan = 'regular'">
+							Regular Registration
+						</button>
+					</div>
 
 
-		<hr class="border-t border-gray-700" />
+					<!-- Cards -->
+					<div class="grid gap-4 mt-6 sm:grid-cols-2">
+						<!-- Local Students -->
+						<div class="border p-4 rounded-lg bg-white shadow">
+							<h3 class="text-lg font-semibold mb-2">Local Students</h3>
+							<p class="text-gray-700 text-xl font-medium"
+								x-text="plan === 'early' ? 'Rs. 2000' : 'Rs. 2500'"></p>
+						</div>
 
-		<!-- About Section -->
-		<section class="py-20">
-			<h2 id="about" class="text-2xl font-bold mt-10 mb-6">About</h2>
-			<div class="text-slate-400">
-				<p>
-					The PGIS Research Congress is the major annual research conference of the Postgraduate Institute of Science.
-					The congress provides an excellent platform to share knowledge and network with scientists across the country
-					and abroad through the presentation of cutting-edge research.
-				</p>
-				<br />
-				<p>
-					The Congress will be held on the 7<sup>th</sup>, and 8<sup>th</sup> of November 2025. The Inauguration
-					Ceremony, together with the keynote speech by a distinguished scientist, will be held on the 7<sup>th</sup>of
-					November.
-				</p>
-				<br />
-				<p>
-					Technical Sessions of RESCON 2025 will be held on 7<sup>th</sup>, and 8<sup>th</sup> of November at the PGIS,
-					and international participants will attend online.
-				</p>
+						<!-- Local Regular -->
+						<div class="border p-4 rounded-lg bg-white shadow">
+							<h3 class="text-lg font-semibold mb-2">Local Regular</h3>
+							<p class="text-gray-700 text-xl font-medium"
+								x-text="plan === 'early' ? 'Rs. 2500' : 'Rs. 3000'"></p>
+						</div>
+
+						<!-- International (SAARC) -->
+						<div class="border p-4 rounded-lg bg-white shadow">
+							<h3 class="text-lg font-semibold mb-2">International (SAARC)</h3>
+							<p class="text-gray-700 text-xl font-medium" x-text="plan === 'early' ? '$ 75' : '$ 100'">
+							</p>
+						</div>
+
+						<!-- International (Non-SAARC) -->
+						<div class="border p-4 rounded-lg bg-white shadow">
+							<h3 class="text-lg font-semibold mb-2">International (Non-SAARC)</h3>
+							<p class="text-gray-700 text-xl font-medium" x-text="plan === 'early' ? '$ 100' : '$ 125'">
+							</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="flex flex-wrap -m-4">
+					<div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+						<div
+							class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+							<h2 class="text-sm tracking-widest title-font mb-1 font-medium">START</h2>
+							<h1 class="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">Free</h1>
+							<p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean
+								shorts.</p>
+						</div>
+					</div>
+					<div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+						<div
+							class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
+							<span
+								class="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">POPULAR</span>
+							<h2 class="text-sm tracking-widest title-font mb-1 font-medium">PRO</h2>
+							<h1
+								class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+								<span>$38</span>
+								<span class="text-lg ml-1 font-normal text-gray-500">/mo</span>
+							</h1>
+							<p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean
+								shorts.</p>
+						</div>
+					</div>
+					<div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+						<div
+							class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+							<h2 class="text-sm tracking-widest title-font mb-1 font-medium">BUSINESS</h2>
+							<h1
+								class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+								<span>$56</span>
+								<span class="text-lg ml-1 font-normal text-gray-500">/mo</span>
+							</h1>
+							<p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean
+								shorts.</p>
+						</div>
+					</div>
+					<div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+						<div
+							class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+							<h2 class="text-sm tracking-widest title-font mb-1 font-medium">SPECIAL</h2>
+							<h1
+								class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+								<span>$72</span>
+								<span class="text-lg ml-1 font-normal text-gray-500">/mo</span>
+							</h1>
+							<p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean
+								shorts.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-		</section>
-		<hr class="border-t border-gray-700" />
-
-		<!-- Guidelines Section -->
-		<section class="py-20">
-			<h2 id="guidelines" class="text-2xl font-bold mt-10 mb-6">Abstract Submission Guidelines</h2>
-			<div class="text-slate-400">
-				<p>
-					Abstract submission will start on the 10<sup>th</sup> April of 2025 and end on<!-- -->
-					<span class="font-bold">10<sup>th</sup> June of 2025</span>. Notification of Acceptance will be sent on 30<sup
-						>th</sup
-					>
-					July of 2025 .
-				</p>
-				<br />
-				<p>
-					Please read the General Guidelines carefully, and make sure to use the templates provided for both the
-					abstract and the extended abstract. We are committed to hosting the conference in-person and requests for
-					online presentations will be considered under special circumstances, particularly for international
-					presenters.
-				</p>
-			</div>
-		</section>
-		<hr class="border-t border-gray-700" />
-
-		<!-- General Guidelines Subsection -->
-		<section class="py-20">
-			<h3 class="text-xl font-bold mt-10 mb-6">General Guidelines</h3>
-			<div class="text-slate-400">
-				<p>
-					Please read the abstract submission guidelines below. Since we get more than 200 abstracts for each RESCON, we
-					want to streamline the process so that it is easier for the reviewers.
-				</p>
-				<br />
-				<p>
-					For RESCON 2024, we will process the submitted abstract and make sure they are ready for review process, this
-					will be done by our editorial assistants.
-				</p>
-			</div>
-			<div class="space-y-3">
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">
-					Abstract Guidelines
-				</button>
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">
-					Submission Checklist
-				</button>
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">
-					Author Declaration Form
-				</button>
-			</div>
-		</section>
-
-		<!-- Templates Subsection -->
-		<section class="py-20">
-			<h3 class="text-xl font-bold mt-10 mb-6">Templates</h3>
-			<div class="text-slate-400">
-				<p>Kindly use the following two templates when you write your abstract and extended abstract</p>
-				<br />
-				<p>
-					If you do not use the templates, the editorial assistants will contact you and help you put the document to
-					the template.
-				</p>
-			</div>
-			<div class="space-y-3">
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">
-					Abstract Template
-				</button>
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">
-					Extended Abstract Template
-				</button>
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">
-					Camera Ready Guidelines
-				</button>
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-950">
-					Camera Ready Template
-				</button>
-			</div>
-		</section>
-
-		<!-- Submit Abstract Subsection -->
-		<section class="py-20">
-			<h3 class="text-xl font-bold mt-10 mb-6">Submit a Abstract</h3>
-			<div class="text-slate-400">
-				<p>Before you submit the abstract, be sure that</p>
-				<p>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="size-6 inline"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"
-						/>
-					</svg>
-
-					You have the abstract with you as an MS Word document prepared according to the template.
-				</p>
-				<p>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="size-6 inline"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"
-						/>
-					</svg>
-
-					You have the extended abstract with you as an MS Word document prepared according to the template.
-				</p>
-			</div>
-			<div class="space-y-3">
-				<button class="w-full text-left px-4 py-2 border border-gray-600 rounded-lg hover:bg-zinc-700">
-					Submit a Abstract
-				</button>
-			</div>
-		</section>
-
-		<!-- Registration Information Section -->
-		<section class="py-20">
-			<h2 class="text-2xl font-bold mt-10 mb-6">Registration Information</h2>
-			<div class="text-slate-400">
-				<p>
-					Find the appropriate registration category below and make sure to register early to take advantage of the
-					early bird window.
-				</p>
-			</div>
-		</section>
-
-		<div class="p-6">
-			<div class="overflow-x-auto">
-				<table class="min-w-full divide-y divide-primary-800">
-					<thead class="bg-dark-500">
+			<div class="lg:w-2/3 w-full mx-auto overflow-auto">
+				<table class="table-auto w-full text-left whitespace-no-wrap">
+					<thead>
 						<tr>
-							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+							<th
+								class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
 								Category
 							</th>
-							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-								Early Registration<br />(Before October 15, 2025)
+							<th
+								class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+								Early Bird Registration <br>
+								(Before October 15, 2025)
 							</th>
-							<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-								Regular Registration<br />(Before October 31, 2025)
+							<th
+								class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+								Regular Registration
+								<br>
+								(Before October 31, 2025)
 							</th>
+
 						</tr>
 					</thead>
-					<tbody class="bg-dark-400 divide-y divide-primary-800">
+					<tbody>
 						<tr>
-							<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-200">Local Students</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Rs. 2000</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Rs. 2500</td>
-						</tr>
-						<tr class="bg-dark-500">
-							<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-200">Local Regular</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Rs. 2500</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">Rs. 3000</td>
+							<td class="px-4 py-3bg-gray-100">Local Students</td>
+							<td class="px-4 py-3">Rs. 2000</td>
+							<td class="px-4 py-3">Rs. 2500</td>
 						</tr>
 						<tr>
-							<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-200">
-								International (SAARC Countries)
-							</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">$ 75</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">$ 100</td>
+							<td class="border-t-2 border-gray-200 px-4 py-3">Local Regular</td>
+							<td class="border-t-2 border-gray-200 px-4 py-3">Rs. 2500</td>
+							<td class="border-t-2 border-gray-200 px-4 py-3">Rs. 3000</td>
 						</tr>
-						<tr class="bg-dark-500">
-							<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-200">
-								International (Non-SAARC Countries)
-							</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">$ 100</td>
-							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">$ 125</td>
+						<tr>
+							<td class="border-t-2 border-gray-200 px-4 py-3">International (SAARC Countries)</td>
+							<td class="border-t-2 border-gray-200 px-4 py-3">$ 75</td>
+							<td class="border-t-2 border-gray-200 px-4 py-3">$ 100</td>
+						</tr>
+						<tr>
+							<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">International (Non-SAARC
+								Countries)</td>
+							<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">$ 100</td>
+							<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">$ 125</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-		</div>
-		<hr class="border-t border-gray-700" />
 
-		<!-- Main Organizing Committee -->
-		<section class="py-20">
-			<h2 id="committee" class="text-2xl font-bold mt-10 mb-6">Main Organizing Committee</h2>
-			<div class="mt-8">
-				<div class="overflow-x-auto">
-					<table class="table-auto w-full border border-gray-700 rounded-lg text-gray-100">
+		</div>
+	</section>
+
+
+
+	<!-- Committee -->
+	<section id="committee" class="bg-white py-24">
+		<div class="text-gray-600 body-font">
+			<div class="container px-5 py-24 mx-auto">
+				<div class="flex flex-col text-center w-full mb-20">
+					<h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Main Organizing
+						Committee
+					</h1>
+				</div>
+				<div class="lg:w-2/3 w-full mx-auto overflow-auto">
+					<table class="table-auto w-full text-left whitespace-no-wrap">
+
 						<tbody>
-							<tr class="border border-gray-700">
-								<td class="p-3">Prof. Nanda Balasooriya | Geology</td>
-								<td class="p-3">Director | PGIS</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Prof. Manawadevi Ganehenege | Chemistry</td>
-								<td class="p-3">Chairperson | RESCON 2025</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Dr. Gajaba Ellepola | Zoology</td>
-								<td class="p-3">Secretary | RESCON 2025</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Prof. Namal Priyantha | Chemistry</td>
-								<td class="p-3">Editor-in-chief | RESCON 2025</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">
-									Prof. Shalika Kumburegama | Zoology <br />
-									Dr. Subhashini Gunathilake | Chemistry
-								</td>
-								<td class="p-3">Assistant Editor | RESCON 2025</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Mr. Saman Jayakody | PGIS</td>
-								<td class="p-3">Financial Coordinator | RESCON 2025</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">
-									Ms. AAS Priyadharshini | SAR <br />
-									Ms. Shiromi Rajapura | PGIS
-								</td>
-								<td class="p-3">Convener | Ceremonial Committee</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">
-									Dr. Tharindu Dewasurendra | Mathematics <br />
-									Dr. Sumudu Ruklani | Botany
-								</td>
-								<td class="p-3">Convener | Food and Entertainment Committee</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Dr. Sampath Alahakoon | Chemistry</td>
-								<td class="p-3">Convener | Logistics Committee</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Dr. Manjula Wijesinghe | Chemistry</td>
-								<td class="p-3">Convener | Media and Publicity Committee</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Dr. Sachinthani Karunaratne | Molecular Biology and Biotechnology</td>
-								<td class="p-3">Convener | Registration Committee</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">
-									Dr. Jagath Senarathna | Statistics &amp; Computer Science
-									<br />
-									Dr. Sasitha Abeweera | Chemistry <br />
-									Dr. Nalaka Sumanaratna Liayanage | Chemistry
-								</td>
-								<td class="p-3">Convener | Technical Programme Committee</td>
-							</tr>
-							<tr class="border border-gray-700">
-								<td class="p-3">Dr. Thiloka Ariyasena | Chemistry</td>
-								<td class="p-3">Convener | PGIS Highlights Committee</td>
+							<tr>
+								<td class="px-4 py-3 bg-gray-100">Prof. Nanda Balasooriya | Geology</td>
+								<td class="px-4 py-3 bg-gray-100">Director | PGIS</td>
 							</tr>
 							<tr>
-								<td class="p-3">
-									Dr. Nalaka Sumanarathna /Chemistry <br />
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 ">Prof. Manawadevi
+									Ganehenege
+									| Chemistry</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Chairperson | RESCON
+									2025
+								</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Dr. Gajaba
+									Ellepola | Zoology</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Secretary |
+									RESCON 2025</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Prof. Namal Priyantha |
+									Chemistry</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Editor-in-chief | RESCON
+									2025</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">
+									Prof. Shalika Kumburegama | Zoology <br>
+									Dr. Subhashini Gunathilake | Chemistry
+								</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Assistant
+									Editor
+									| RESCON 2025</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Mr. Saman Jayakody |
+									PGIS
+								</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Financial Coordinator |
+									RESCON 2025</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">
+									Ms. AAS Priyadharshini | SAR <br>
+									Ms. Shiromi Rajapura | PGIS
+								</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Convener |
+									Ceremonial Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">
+									Dr. Tharindu Dewasurendra | Mathematics <br>
+									Dr. Sumudu Ruklani | Botany
+								</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Convener | Food and
+									Entertainment Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Dr. Sampath
+									Alahakoon | Chemistry</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Convener |
+									Logistics Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Dr. Manjula Wijesinghe |
+									Chemistry</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Convener | Media and
+									Publicity Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Dr.
+									Sachinthani
+									Karunaratne | Molecular Biology and Biotechnology</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Convener |
+									Registration Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">
+									Dr. Jagath Senarathna | Statistics &amp; Computer Science
+									<br>
+									Dr. Sasitha Abeweera | Chemistry <br>
+									Dr. Nalaka Sumanaratna Liayanage | Chemistry
+								</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Convener | Technical
+									Programme Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Dr. Thiloka
+									Ariyasena | Chemistry</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 bg-gray-100">Convener |
+									PGIS
+									Highlights Committee</td>
+							</tr>
+							<tr>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">
+									Dr. Nalaka Sumanarathna /Chemistry <br>
 									Dr. Sasitha Abeweera | Chemistry
 								</td>
-								<td class="p-3">Convener | International Relations Committee</td>
+								<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Convener | International
+									Relations Committee</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
+				<!-- <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
+					<a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">See More
+						<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+							stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+							<path d="M5 12h14M12 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				</div> -->
 			</div>
-		</section>
-		<hr class="border-t border-gray-700" />
+		</div>
+	</section>
 
-		<!-- Contacts Us -->
-		<section class="mb-6 mt-6" id="contact">
-			<h3 class="text-xl font-bold-semi mt-10 mb-6">Contacts</h3>
-			<p>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="size-6 inline mr-4"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-					/>
-				</svg>
+	<!-- Footer -->
+	<footer class="bg-white text-gray-600 body-font border-t border-gray-200">
+		<div class="border-t border-gray-200">
+			<div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+				<div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+					<p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">
+						The Microsoft CMT service was used for managing the peer-reviewing process for this
+						conference.
+						This
+						service was provided for free by Microsoft and they bore all expenses, including costs for
+						Azure
+						cloud
+						services as well as for software development and support.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bg-gray-100">
+			<div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+				<p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
+					© 2024 All Rights Reserved
+					<a href="https://www.pgis.lk" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@
+						www.pgis.lk</a>
+				</p>
+				<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a href="https://www.facebook.com/Postgraduate-Institute-of-Science-University-of-Peradeniya-Sri-Lanka-123380532393978"
+						class="text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+							<path fill="#838383" stroke-miterlimit="10"
+								d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h16.832a1 1 0 0 0 .326 0h5.674a1 1 0 0 0 .326 0H41c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3h-8V30h3.82l1.4-7H33v-2c0-.557.053-.601.24-.723.187-.121.766-.277 1.76-.277h3v-5.63l-.57-.272S35.133 13 32 13c-2.25 0-4.098.896-5.281 2.375C25.536 16.854 25 18.833 25 21v2h-3v7h3v14H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm23 9c2.08 0 3.387.458 4 .701V18h-1c-1.15 0-2.073.095-2.85.6-.776.504-1.15 1.461-1.15 2.4v4h4.78l-.6 3H31v16h-4V28h-3v-3h3v-4c0-1.833.464-3.354 1.281-4.375S30.25 15 32 15z"
+								style="mix-blend-mode:normal" transform="scale(5.12)" />
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+							<path fill="#838383" stroke-miterlimit="10"
+								d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h32c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm6 2c.414 1.013 2.402 5.381 3 6.994V19h2v-4l3-7h-2.4L19 12l-1.6-4zm10 3c-1.006 0-1.771.275-2.332.945-.433.495-.666 1.29-.666 2.336L22 15.727c0 1.04.206 1.76.639 2.252C23.2 18.646 24.11 19 25 19c.889 0 1.816-.354 2.379-1.023.426-.49.621-1.21.621-2.25v-1.452c0-1.048-.242-1.835-.668-2.33C26.77 11.275 25.889 11 25 11zm4 0v5.838c0 .66.098 1.108.238 1.396.23.473.69.716 1.352.737.91.03 1.595-.561 2.41-1.346V19h2v-8h-2v5.375c-.455.539-.979 1.018-1.39 1.018-.274 0-.56-.126-.61-.393v-6zm-4 1.62c.552 0 1 .457 1 1.02v2.807c0 .563-.448 1.022-1 1.022s-1-.458-1-1.022v-2.806c0-.563.448-1.022 1-1.022zM24.99 22s-6.71 0-11.19.32c-.63.07-1.99.08-3.21 1.33-.96.94-1.27 3.1-1.27 3.1S9 28.28 9 30.81v2.37c0 2.53.32 4.06.32 4.06s.31 2.16 1.27 3.11c1.22 1.24 2.82 1.2 3.53 1.33C16.68 41.92 25 42 25 42s6.72-.01 11.2-.33c.63-.07 1.99-.08 3.21-1.33.96-.94 1.27-3.1 1.27-3.1s.32-1.53.32-4.06v-2.37c0-2.53-.32-4.06-.32-4.06s-.31-2.16-1.27-3.1c-1.22-1.25-2.58-1.26-3.21-1.33C31.72 22 25.01 22 25.01 22zM12 26h6v2h-2v10h-2V28h-2zm13 0h2v4.38c.75-.88 1.15-1.39 2.12-1.38.76.01 1.37.44 1.62 1.22.13.42.26 1.17.26 2.16v2.75c-.01.88-.1 1.27-.22 1.69-.25.78-.9 1.18-1.66 1.18-.67 0-1.49-.47-2.12-1.25V38h-2zm-7 3h2v6.89c.05.29.26.4.52.4.4 0 1.04-.44 1.48-1.02V29h2v9h-2v-1.37c-.79.86-1.73 1.37-2.46 1.37-.64 0-1.09-.279-1.31-.789-.13-.32-.23-.802-.23-1.522zm17.03 0c.99 0 1.78.32 2.33.92.41.44.64 1.12.64 2.06V34h-4v1.8c0 .46.45.84 1 .84s1-.38 1-.84V35h2c0 .51-.06.94-.07 1.1-.07.35-.229.67-.469.95-.54.64-1.35.95-2.38.95-1.04 0-1.822-.3-2.392-.9-.42-.43-.689-1.09-.689-2.02v-3.06c0-.94.24-1.66.67-2.1.57-.6 1.35-.92 2.36-.92zM35 30.45c-.55 0-1 .37-1 .84v1.32h2v-1.32c0-.47-.45-.84-1-.84zm-6.78.3c-.154 0-.38.078-.607.195a2.92 2.92 0 0 0-.332.201 2.162 2.162 0 0 0-.281.235v4.369c.08.08.176.154.281.219.316.194.707.31.94.31.202 0 .36-.049.482-.168a.66.66 0 0 0 .11-.142c.063-.11.11-.254.14-.436.031-.181.047-.401.047-.664v-2.738c0-.263-.016-.482-.047-.66-.062-.357-.186-.558-.383-.653a.799.799 0 0 0-.35-.068z"
+								style="mix-blend-mode:normal" transform="scale(5.12)" />
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
 
-				+94 81 231 2796 (Congress Office)
-			</p>
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+							<path fill="#848484" transform="scale(0.6)"
+								d="M41 7c5.242 5.12 7.792 10.974 8.098 18.363-.514 7.249-3.118 13.138-8.535 18.012-5.598 4.376-11.759 6.138-18.868 5.379-6.927-1.318-12.179-4.263-16.59-9.93C1.625 33.081.326 26.768 1.434 20.16 3.324 12.954 6.866 8.205 13 4c2.563-1.313 2.563-1.313 5-2l2.625-.75C28.085.697 35.234 2.057 41 7ZM22 5c-3.303 3.452-3.303 3.452-4 8h6V5h-2Zm4 0v8h6c-.597-3.342-1.736-5.464-4-8h-2ZM14 7c-1.637 1.96-1.637 1.96-3 4l4 1 1-5h-2Zm20 0 1 5 4-2c-1.375-1.542-1.375-1.542-3-3h-2ZM8 13c-2.153 3.858-3.393 6.551-3 11h8v-9l-5-2Zm33 0-4 2v9h8c-.23-5.39-.23-5.39-2.563-10L41 13Zm-25 3v8h8v-8h-8Zm10 0v8h8v-8h-8ZM5 26c.23 5.39.23 5.39 2.563 10L9 37l4-2v-9H5Zm11 0v8h8v-8h-8Zm10 0v8h8v-8h-8Zm11 0v9l5 2c2.153-3.858 3.393-6.551 3-11h-8ZM18 37c.597 3.342 1.736 5.464 4 8h2v-8h-6Zm8 0v8c3.161-1.37 3.993-1.99 6-5v-3h-6Zm-13 1-2 2c1.375 1.542 1.375 1.542 3 3h2l-1-5h-2Zm22 0-1 5c3.122-1.309 3.122-1.309 5-4l-4-1Z" />
+						</svg>
+					</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+</body>
 
-			<p>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="size-6 inline mr-4"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z"
-					/>
-				</svg>
-
-				rescon2025@pgis.lk
-			</p>
-			<p>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="size-6 inline mr-4"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"
-					/>
-				</svg>
-
-				gajaba.ellepola@sci.pdn.ac.lk (Congress Secretary)
-			</p>
-			<p>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="size-6 inline mr-4"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-					/>
-				</svg>
-
-				Institute of Science, Peradeniya, 20400
-			</p>
-
-			<hr class="mt-6" />
-
-			<!-- Footer -->
-		</section>
-
-		<p class="text-slate-600 text-sm">
-			The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was
-			provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for
-			software development and support.
-		</p>
-		<p class="text-slate-200 text-sm">Copyright © PGIS 2025</p>
-	</body>
-	.
 </html>
