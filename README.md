@@ -13,7 +13,7 @@ This is the official website for **RESCON 2025**, hosted by the Postgraduate Ins
 ```
 rescon2025/
 ├── index.html         # Main HTML file
-├── /workshops/          # Pre-Conferrence Workshops
+├── /workshops/        # Pre-Conferrence Workshops
 ├── /images/           # Logos, speaker photos, etc.
 ├── /docs/             # Abstract templates, schedules, flyers
 └── README.md          # Project documentation
