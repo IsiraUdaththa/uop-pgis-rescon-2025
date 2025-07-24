@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RESCON | PGIS</title>
+	<!-- Tailwind CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Alpine.js CDN -->
+	<script src="//unpkg.com/alpinejs" defer></script>
+
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+	</style>
+</head>
+
+<body class="bg-white text-white">
+	<!-- Navigation Bar -->
+	<header
+		class="sticky top-0 z-50 mx-auto max-w-5xl rounded-2xl bg-white/60 backdrop-blur-md shadow-md border border-gray-200 mt-4"
+		x-data="{ mobileMenuOpen: false }">
+		<nav class="flex items-center justify-between px-4 py-2">
+			<!-- Logo -->
+			<div class="flex items-center">
+				<a href="#" class="p-1">
+					<img src="../images/logo.png" alt="Logo" class="h-10 w-auto">
+				</a>
+			</div>
+
+			<!-- Desktop Nav Links (hidden on mobile) -->
+			<div class="hidden md:flex gap-x-8 mx-auto">
+				<a href="../#about"
+					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
+				<a href="../#guidelines"
+					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Guidelines</a>
+				<a href="../workshops"
+					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Workshops</a>
+				<a href="#"
+					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Speakers</a>
+				<a href="../#committee"
+					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Committee</a>
+				<a href="../#footer"
+					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
+			</div>
+
+			<!-- Mobile Hamburger Menu Button -->
+			<div class="md:hidden">
+				<button @click="mobileMenuOpen = !mobileMenuOpen"
+					class="p-2 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg transition-colors duration-200"
+					:aria-expanded="mobileMenuOpen" aria-label="Toggle mobile menu">
+					<!-- Hamburger Icon -->
+					<div class="w-6 h-6 flex flex-col justify-center items-center">
+						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300"
+							:class="mobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'"></span>
+						<span class="block w-5 h-0.5 bg-current transition-all duration-300"
+							:class="mobileMenuOpen ? 'opacity-0' : 'opacity-100'"></span>
+						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300"
+							:class="mobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'"></span>
+					</div>
+				</button>
+			</div>
+		</nav>
+
+		<!-- Mobile Menu Dropdown -->
+		<div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
+			x-transition:enter-start="opacity-0 transform -translate-y-2"
+			x-transition:enter-end="opacity-100 transform translate-y-0"
+			x-transition:leave="transition ease-in duration-150"
+			x-transition:leave-start="opacity-100 transform translate-y-0"
+			x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden  rounded-b-2xl"
+			@click.away="mobileMenuOpen = false">
+			<div class="px-4 py-4 space-y-3">
+				<a href="../#about"
+					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
+					@click="mobileMenuOpen = false">
+					About
+				</a>
+				<a href="../#guidelines"
+					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
+					@click="mobileMenuOpen = false">
+					Guidelines
+				</a>
+				<a href="../speakers"
+					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
+					@click="mobileMenuOpen = false">
+					Workshops
+				</a>
+				<a href="#"
+					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
+					@click="mobileMenuOpen = false">
+					Speakers
+				</a>
+				<a href="../#committee"
+					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
+					@click="mobileMenuOpen = false">
+					Committee
+				</a>
+				<a href="../#footer"
+					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
+					@click="mobileMenuOpen = false">
+					Contact
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<section id="about" class="overflow-hidden pt-24 text-center">
+
+		<h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+			Key Note Speakers of RESCON 2025</h2>
+	</section>
+
+
+	<div
+		class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#fff7ed_0%,_transparent_60%)] pointer-events-none -z-10">
+	</div>
+
+	<section class="text-gray-600 body-font  mx-auto container px-5 pt-24">
+
+		<p class="text-lg/16 text-gray-400">Key Note Speaker</p>
+		<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Prof. Claudio Verani </h1>
+		<div class="container mx-auto flex md:flex-row flex-col ">
+
+			<div
+				class="flex flex-col items-center text-center justify-center lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 mx-auto">
+				<img class="object-cover object-center rounded mx-auto w-full" alt="hero"
+					src="../images/Speakers/Prof. Verani.jpg">
+
+				<div class="flex flex-col items-center text-center justify-center">
+					<h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Prof. Claudio Verani </h2>
+					<p class="text-base">Dean of the Faculty of Science</p>
+					<p class="text-base">Professor of Chemistry</p>
+					<p class="text-base">University of Windsor</p>
+					<p class="text-base">Windsor, Ontario, Canada</p>
+				</div>
+			</div>
+			<div
+				class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+
+				<p class="text-gray-600 text-justify">Claudio Verani is a Professor of Chemistry and Dean
+					of the Faculty of Science at the University of Windsor. Since joining in July 2024, he has been
+					navigating the evolving landscape of Canadian higher education, with a focus on academic excellence
+					based on experiential learning, critical-thinking, research innovation, and career preparedness.
+					Prior to this role, he lived in the US, serving for over 20 years at Wayne State University and
+					holding the positions of Professor of Chemistry and Associate Dean for Research.
+				</p>
+
+
+				<p class="mt-6 text-gray-600 text-justify">His research interests are centred on coordination
+					and physical-inorganic chemistry and have yielded over 80 peer reviewed articles in top
+					journals on
+					molecular electronics, renewable energy, environmental remediation, and drug development.
+					This
+					research has been supported the National Science Foundation, the Department of Energy, the
+					Petroleum
+					Research Fund, the Army Corps of Engineers, and now by the Natural Sciences and Engineering
+					Research
+					Council of Canada.
+				</p>
+				<p class="mt-6 text-gray-600  text-justify">He received his B.Sc. and M.Sc. degrees in
+					Chemistry at UFSC in Brazil, a Ph.D. degree from the Max-Planck Institute and Ruhr
+					Universität in
+					Germany and completed his postdoctoral training at Johns Hopkins University in the United
+					States.
+				</p>
+				<p class="mt-6 text-gray-600  text-justify">In his free time, he enjoys spending time with his
+					wife and daughter, and pursues creative outlets such as playing music, drawing abstract
+					landscapes,
+					and exploring new sounds.
+				</p>
+
+			</div>
+		</div>
+	</section>
+
+
+	<section class="text-gray-600 body-font mx-auto container px-5 pt-24">
+		<p class="text-lg/16 text-gray-400">Key Note Speaker</p>
+		<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Prof. Veranja Karunaratne
+		</h1>
+		<div class="container mx-auto flex pb-24 md:flex-row flex-col">
+			<div
+				class="flex flex-col items-center text-center justify-center lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 mx-auto">
+				<img class="object-cover object-center rounded mx-auto w-full" alt="hero"
+					src="../images/Speakers/Prof. Veranja.jpg">
+			</div>
+			<div
+				class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+
+
+				<p class="text-gray-600 text-justify">Professor Veranja Karunaratne is a distinguished Sri Lankan
+					chemist and academic, holding a B.Sc. (First Class) from the University of Colombo and a Ph.D. in
+					Synthetic Organic Chemistry from the University of British Columbia, Canada. A Professor Emeritus at
+					the University of Peradeniya, he has held key leadership roles, including Vice Chancellor of ESOFT
+					University, SLTC, and SLINTEC Academy, as well as Chairman of NASTEC and the National Intellectual
+					Property Advisory Commission.
+				</p>
+				<p class="mt-6 text-gray-600 text-justify"> An elected Fellow of the National Academy of Sciences, Sri
+					Lanka,
+					and
+					the Royal Society of Chemistry (UK), he has 17 international patents, 192 publications, and an
+					H-index of 43, while mentoring 24 Ph.D. and 14 M.Phil. students. His accolades include the French
+					Order of Academic Palms (2012), NSF awards, and the Presidential Award for Scientific Publication
+					(2001-2017), cementing his legacy as a pioneer in Sri Lankan science and innovation.
+				</p>
+				<p class="mt-6 text-gray-600 text-justify"> His accolades include the French
+					Order of Academic Palms (2012), NSF awards, and the Presidential Award for Scientific Publication
+					(2001-2017), cementing his legacy as a pioneer in Sri Lankan science and innovation.
+				</p>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section id="about" class="overflow-hidden pt-24 text-center  border-t border-gray-300 ">
+
+		<h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+			Plenary Speakers of RESCON 2025</h2>
+	</section>
+
+
+	<section class="text-gray-600 body-font mx-auto container px-5 pt-24">
+		<p class="text-lg/16 text-gray-400">Plenary Speaker</p>
+		<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Dr. Dushanthi Dissanayake
+		</h1>
+		<div class="container mx-auto flex pb-24 md:flex-row flex-col">
+			<div
+				class="flex flex-col items-center text-center justify-center lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0 mx-auto">
+				<img class="object-cover object-center rounded mx-auto w-full" alt="hero"
+					src="../images/Speakers/Dr. Dissanayake.jpg">
+			</div>
+			<div
+				class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+
+
+				<p class="text-gray-600 text-justify">Dr. Dissanayake is a synthetic organic chemist and dedicated
+					educator with over eight years of
+					full-time teaching experience at undergraduate levels. She is skilled in organic synthesis, polymer
+					synthesis, characterization techniques and working in a clean room environment.
+				</p>
+				<p class="mt-6 text-gray-600 text-justify">Dr. Dissanayake
+					has a passion for student-centered learning and consistently brought complex chemical concepts
+					to life through engaging instruction and direct mentorship. Her teaching philosophy emphasizes
+					clarity, creativity and connection ensuring that every learner feels empowered to reach their full
+					potential.
+				</p>
+				<p class="mt-6 text-gray-600 text-justify">In recent years, Dr. Dissanayake has developed a growing
+					interest
+					in the intersection of
+					education and technology, particularly the transformative potential of artificial intelligence in
+					teaching and learning.
+				</p>
+
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer" class="bg-white text-gray-600 body-font border-t border-gray-200 ">
+		<div class="border-t border-gray-200 max-w-5xl mx-auto">
+			<div class="container px-5 py-8 ">
+				<div class="flex flex-col sm:flex-row w-full justify-between">
+					<div class="flex flex-col gap-4 w-full sm:w-3/5">
+						<div class="w-full sm:w-3/5">
+							<h2 class="text-2xl text-gray-600 mb-3">Contact Us</h2>
+							<div class="flex flex-col gap-2 text-sm text-gray-600">
+								<div class="flex items-center gap-2">
+									<!-- Phone Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path
+											d="M6.62 10.79a15.72 15.72 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11z" />
+									</svg>
+									+94 81 231 2796 (Congress Office)
+								</div>
+
+								<div class="flex items-center gap-2">
+									<!-- Home Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+									</svg>
+									Postgraduate Institute of Science, Peradeniya, 20400
+								</div>
+
+								<div class="flex items-center gap-2">
+									<!-- Email Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path
+											d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+									</svg>
+									rescon2025@pgis.lk
+								</div>
+
+								<div class="flex items-center gap-2">
+									<!-- Email Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path
+											d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+									</svg>
+									gajaba.ellepola@sci.pdn.ac.lk (Congress Secretary)
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="border-t border-gray-200 ">
+			<div class="container py-8 flex flex-wrap mx-auto items-center max-w-5xl mx-auto">
+				<div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+					<p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">
+						The Microsoft CMT service was used for managing the peer-reviewing process for this
+						conference.
+						This
+						service was provided for free by Microsoft and they bore all expenses, including costs for
+						Azure
+						cloud
+						services as well as for software development and support.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bg-gray-100">
+			<div class="container  py-6 mx-auto flex items-center sm:flex-row flex-col max-w-5xl mx-auto">
+				<p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
+					© 2024 All Rights Reserved
+					<a href="https://www.pgis.lk" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@
+						www.pgis.lk</a>
+				</p>
+				<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a href="https://www.facebook.com/Postgraduate-Institute-of-Science-University-of-Peradeniya-Sri-Lanka-123380532393978"
+						class="text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+							<path fill="#838383" stroke-miterlimit="10"
+								d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h16.832a1 1 0 0 0 .326 0h5.674a1 1 0 0 0 .326 0H41c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3h-8V30h3.82l1.4-7H33v-2c0-.557.053-.601.24-.723.187-.121.766-.277 1.76-.277h3v-5.63l-.57-.272S35.133 13 32 13c-2.25 0-4.098.896-5.281 2.375C25.536 16.854 25 18.833 25 21v2h-3v7h3v14H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm23 9c2.08 0 3.387.458 4 .701V18h-1c-1.15 0-2.073.095-2.85.6-.776.504-1.15 1.461-1.15 2.4v4h4.78l-.6 3H31v16h-4V28h-3v-3h3v-4c0-1.833.464-3.354 1.281-4.375S30.25 15 32 15z"
+								style="mix-blend-mode:normal" transform="scale(5.12)" />
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+							<path fill="#838383" stroke-miterlimit="10"
+								d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h32c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm6 2c.414 1.013 2.402 5.381 3 6.994V19h2v-4l3-7h-2.4L19 12l-1.6-4zm10 3c-1.006 0-1.771.275-2.332.945-.433.495-.666 1.29-.666 2.336L22 15.727c0 1.04.206 1.76.639 2.252C23.2 18.646 24.11 19 25 19c.889 0 1.816-.354 2.379-1.023.426-.49.621-1.21.621-2.25v-1.452c0-1.048-.242-1.835-.668-2.33C26.77 11.275 25.889 11 25 11zm4 0v5.838c0 .66.098 1.108.238 1.396.23.473.69.716 1.352.737.91.03 1.595-.561 2.41-1.346V19h2v-8h-2v5.375c-.455.539-.979 1.018-1.39 1.018-.274 0-.56-.126-.61-.393v-6zm-4 1.62c.552 0 1 .457 1 1.02v2.807c0 .563-.448 1.022-1 1.022s-1-.458-1-1.022v-2.806c0-.563.448-1.022 1-1.022zM24.99 22s-6.71 0-11.19.32c-.63.07-1.99.08-3.21 1.33-.96.94-1.27 3.1-1.27 3.1S9 28.28 9 30.81v2.37c0 2.53.32 4.06.32 4.06s.31 2.16 1.27 3.11c1.22 1.24 2.82 1.2 3.53 1.33C16.68 41.92 25 42 25 42s6.72-.01 11.2-.33c.63-.07 1.99-.08 3.21-1.33.96-.94 1.27-3.1 1.27-3.1s.32-1.53.32-4.06v-2.37c0-2.53-.32-4.06-.32-4.06s-.31-2.16-1.27-3.1c-1.22-1.25-2.58-1.26-3.21-1.33C31.72 22 25.01 22 25.01 22zM12 26h6v2h-2v10h-2V28h-2zm13 0h2v4.38c.75-.88 1.15-1.39 2.12-1.38.76.01 1.37.44 1.62 1.22.13.42.26 1.17.26 2.16v2.75c-.01.88-.1 1.27-.22 1.69-.25.78-.9 1.18-1.66 1.18-.67 0-1.49-.47-2.12-1.25V38h-2zm-7 3h2v6.89c.05.29.26.4.52.4.4 0 1.04-.44 1.48-1.02V29h2v9h-2v-1.37c-.79.86-1.73 1.37-2.46 1.37-.64 0-1.09-.279-1.31-.789-.13-.32-.23-.802-.23-1.522zm17.03 0c.99 0 1.78.32 2.33.92.41.44.64 1.12.64 2.06V34h-4v1.8c0 .46.45.84 1 .84s1-.38 1-.84V35h2c0 .51-.06.94-.07 1.1-.07.35-.229.67-.469.95-.54.64-1.35.95-2.38.95-1.04 0-1.822-.3-2.392-.9-.42-.43-.689-1.09-.689-2.02v-3.06c0-.94.24-1.66.67-2.1.57-.6 1.35-.92 2.36-.92zM35 30.45c-.55 0-1 .37-1 .84v1.32h2v-1.32c0-.47-.45-.84-1-.84zm-6.78.3c-.154 0-.38.078-.607.195a2.92 2.92 0 0 0-.332.201 2.162 2.162 0 0 0-.281.235v4.369c.08.08.176.154.281.219.316.194.707.31.94.31.202 0 .36-.049.482-.168a.66.66 0 0 0 .11-.142c.063-.11.11-.254.14-.436.031-.181.047-.401.047-.664v-2.738c0-.263-.016-.482-.047-.66-.062-.357-.186-.558-.383-.653a.799.799 0 0 0-.35-.068z"
+								style="mix-blend-mode:normal" transform="scale(5.12)" />
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
+
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+							<path fill="#848484" transform="scale(0.6)"
+								d="M41 7c5.242 5.12 7.792 10.974 8.098 18.363-.514 7.249-3.118 13.138-8.535 18.012-5.598 4.376-11.759 6.138-18.868 5.379-6.927-1.318-12.179-4.263-16.59-9.93C1.625 33.081.326 26.768 1.434 20.16 3.324 12.954 6.866 8.205 13 4c2.563-1.313 2.563-1.313 5-2l2.625-.75C28.085.697 35.234 2.057 41 7ZM22 5c-3.303 3.452-3.303 3.452-4 8h6V5h-2Zm4 0v8h6c-.597-3.342-1.736-5.464-4-8h-2ZM14 7c-1.637 1.96-1.637 1.96-3 4l4 1 1-5h-2Zm20 0 1 5 4-2c-1.375-1.542-1.375-1.542-3-3h-2ZM8 13c-2.153 3.858-3.393 6.551-3 11h8v-9l-5-2Zm33 0-4 2v9h8c-.23-5.39-.23-5.39-2.563-10L41 13Zm-25 3v8h8v-8h-8Zm10 0v8h8v-8h-8ZM5 26c.23 5.39.23 5.39 2.563 10L9 37l4-2v-9H5Zm11 0v8h8v-8h-8Zm10 0v8h8v-8h-8Zm11 0v9l5 2c2.153-3.858 3.393-6.551 3-11h-8ZM18 37c.597 3.342 1.736 5.464 4 8h2v-8h-6Zm8 0v8c3.161-1.37 3.993-1.99 6-5v-3h-6Zm-13 1-2 2c1.375 1.542 1.375 1.542 3 3h2l-1-5h-2Zm22 0-1 5c3.122-1.309 3.122-1.309 5-4l-4-1Z" />
+						</svg>
+					</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
