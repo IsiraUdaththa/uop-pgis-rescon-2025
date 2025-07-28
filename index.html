@@ -18,6 +18,25 @@
 </head>
 
 <body class="bg-white text-white">
+	<!-- Banner -->
+	<div x-data="{ show: true }" x-show="show" x-transitio n
+		class="fixed inset-x-0 bottom-0 z-auto flex items-center justify-between border-t border-gray-200 bg-amber-200 px-4 py-2 text-gray-900">
+		<span></span>
+
+		<p class="text-center font-medium">
+			Announcing our 3<sup>rd</sup> Pre-Conference Talk.
+			<a href="workshops" class="inline-block underline"> Read More</a>
+		</p>
+
+		<button type="button" aria-label="Dismiss" @click="show = false"
+			class="rounded border border-gray-300 bg-white p-1.5 shadow-sm transition-colors hover:bg-gray-50">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+				stroke="currentColor" class="size-5">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</div>
+
 	<!-- Navigation Bar -->
 	<header
 		class="sticky top-0 z-50 mx-auto max-w-5xl rounded-2xl bg-white/60 backdrop-blur-md shadow-md border border-gray-200 mt-4"
