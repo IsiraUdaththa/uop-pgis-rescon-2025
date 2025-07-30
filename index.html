@@ -181,6 +181,51 @@
 					<p class="text-orange-500 py-10 font-bolt text-2xl">
 						November 7-8, 2025
 					</p>
+
+					<div x-data="{
+							endDate: new Date('2025-11-07T09:00:00').getTime(),
+							remainingTime: 0,
+							formatTime(time) {
+							const days = Math.floor(time / (1000 * 60 * 60 * 24));
+							const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+							const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+							const seconds = Math.floor((time % (1000 * 60)) / 1000);
+							return { days, hours, minutes, seconds };
+							}
+						}" x-init="() => {
+							setInterval(() => {
+							const now = new Date().getTime();
+							const remainingTime = endDate - now;
+							$data.remainingTime = remainingTime > 0 ? remainingTime : 0;
+							}, 1000);
+						}">
+						<template x-if="remainingTime > 0">
+							<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+								<template x-for="[unit, value] of Object.entries(formatTime(remainingTime))">
+									<div
+										class="bg-white shadow-lg shadow-amber-400/40 rounded-xl p-6 transition-all duration-500 ease-in-out transform hover:scale-105">
+										<div x-text="value"
+											class="text-4xl font-bold text-amber-600 transition duration-300 ease-in-out"
+											x-transition:enter="transform transition duration-500"
+											x-transition:enter-start="opacity-0 scale-90"
+											x-transition:enter-end="opacity-100 scale-100"
+											x-transition:leave="transform transition duration-500"
+											x-transition:leave-start="opacity-100 scale-100"
+											x-transition:leave-end="opacity-0 scale-90"></div>
+										<div class="mt-2 text-lg capitalize text-gray-700" x-text="unit"></div>
+									</div>
+								</template>
+							</div>
+						</template>
+
+						<template x-if="remainingTime <= 0">
+							<div class="text-2xl font-semibold text-red-500 animate-pulse">
+								<!-- Countdown has ended! -->
+							</div>
+						</template>
+					</div>
+					<div class="mt-24"></div>
+
 					<a href="images/RESCON BROCHURE 2025.pdf" target="_blank"
 						class="text-indigo-500 hover:text-indigo-700 transition-colors duration-200 inline-flex items-center mt-6">
 						See the Brochure
