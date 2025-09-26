@@ -10,6 +10,11 @@
 	<!-- Alpine.js CDN -->
 	<script src="//unpkg.com/alpinejs" defer></script>
 
+	<!-- Splide JS -->
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+	<!-- Splide CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+
 	<style>
 		html {
 			scroll-behavior: smooth;
@@ -235,13 +240,49 @@
 				<div class="flex flex-col sm:flex-row mt-5">
 
 					<div class="text-center sm:text-left">
-						<p class="mt-6 text-lg/8 text-gray-600 text-justify">We are pleased to announce the
-							3<sup>rd</sup>
-							Pre-Conference Talk for RESCON 2025, titled "Navigating Graduate Studies & Effective SOP
-							Writing". All students and early-career researchers are
-							encouraged to attend.
+						<p class="mt-6 text-lg/8 text-gray-600 text-justify">The 3<sup>rd</sup> Pre-Conference Workshop
+							of PGIS
+							RESCON 2025 was held on Saturday, 2<sup>nd</sup> August 2025, at the PGIS Conference Hall
+							with over 100
+							participants, including undergraduates, postgraduates, and early-career researchers. The
+							workshop, “Navigating Graduate Studies & Effective SOP Writing,” offered practical guidance
+							for students planning higher studies and careers abroad.
+						</p>
+						<p class="mt-6 text-lg/8 text-gray-600 text-justify">
+							The event featured three distinguished speakers from the United States:
 						</p>
 
+						<ul class="mt-6 list-disc ml-8 text-lg/8 text-gray-600 text-justify">
+
+							<li>Prof. Susan M. Lunte (University of
+								Kansas), an internationally recognized leader in microfluidic and separation-based
+								technologies, Director of two major bioanalytical research centers, and recipient of the
+								2023 ACS Award in Analytical Chemistry.</li>
+							<li>Dr. Binodh De Silva (Ultragenyx
+								Pharmaceutical Inc.), Senior Vice President and global healthcare executive with
+								extensive experience in drug discovery, biomarker development, and organizational
+								leadership in the pharmaceutical and biotechnology sectors.</li>
+							<li>Dr. Gamini Dharmasena (VideoRay LLC &
+								University of Oklahoma), a multidisciplinary scientist and engineer specializing in
+								scientific instrumentation, radar electronics, and underwater robotics, with a strong
+								record in innovation and alumni initiatives supporting science education.</li>
+						</ul>
+
+						<p class="mt-6 text-lg/8 text-gray-600 text-justify">
+							The program opened with a ceremonial procession and remarks by Prof. M.Y.U. Ganehenege,
+							Chairperson of RESCON 2025, followed by an introduction to PGIS and RESCON by Prof. Nanda
+							Balasooriya, Director of PGIS. Dr. Manjula Wijesinghe introduced the guest speakers.
+						</p>
+
+
+						<p class="mt-6 text-lg/8 text-gray-600 text-justify">
+							Academic proceedings began with Prof. Lunte's research talk on “Bioanalytical
+							Applications
+							on Microchip and Capillary Electrophoresis” highlighting applications of modern
+							separation
+							technologies in pharmaceutical research. The event concluded on a cultural note with a
+							performance by the PGIS Art Circlef
+						</p>
 						<p class="mt-6 text-lg/8 text-gray-600">
 							Date: <b class="underline decoration-2 decoration-amber-500">2nd August 2025 (Saturday)</b>
 
@@ -327,200 +368,89 @@
 		</div>
 	</section>
 
-	<section class="text-gray-600 body-font ">
-		<div class="container px-5 pb-24 mx-auto flex flex-wrap ">
+	<section class="text-gray-600 body-font">
+		<div class="container mx-auto px-5 pb-24">
 
-			<div class="flex flex-wrap md:-m-2 -m-1">
-
-				<div class="flex flex-wrap w-1/2">
-
-					<div class="md:p-2 p-1 w-1/2 ">
-						<div class="overflow-hidden rounded">
-							<div class="overflow-hidden rounded">
-								<img alt="gallery"
-									class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-									src="../images/Workshops/03/1.jpg">
-							</div>
-						</div>
-					</div>
-
-					<div class="md:p-2 p-1 w-1/2">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/2.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/22.jpg">
-						</div>
-					</div>
+			<!-- Talks Carousel -->
+			<div id="workshop-splide" class="splide" aria-label="Workshop Gallery" x-data x-init="
+        new Splide($el, {
+          type   : 'slide',
+          drag   : 'free',
+          perPage: 4,
+		  perMove: 1,
+          interval: 3000,
+          gap    : '1rem',
+          autoplay: true,
+          pagination: true,
+		   breakpoints: {
+        640: { perPage: 1 } // <= 640px (mobile) show 1 item
+      }
+        }).mount()
+      ">
+				<div class="splide__track">
+					<ul class="splide__list">
+						<li class="splide__slide"><img src='../images/Workshops/03/1.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/2.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/6.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/3.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/4.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/5.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/9.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/10.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/7.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/8.jpg' class="rounded-lg"></li>
+					</ul>
 				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/20.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-1/2">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/7.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-1/2">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110 "
-								src="../images/Workshops/03/6.jpg">
-						</div>
-					</div>
+			</div>
+			<br>
+			<!-- Group Carousel -->
+			<div id="workshop-splide" class="splide" aria-label="Workshop Gallery" x-data x-init="
+        new Splide($el, {
+          type   : 'slide',
+          drag   : 'free',
+          perPage: 1,
+          interval: 5000,
+          gap    : '1rem',
+          autoplay: true,
+          pagination: true,
+        }).mount()
+      ">
+				<div class="splide__track">
+					<ul class="splide__list">
+						<li class="splide__slide"><img src='../images/Workshops/03/23.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/20.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/24.jpg' class="rounded-lg"></li>
+					</ul>
 				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-1/2 ">
-						<div class="overflow-hidden rounded">
-							<div class="overflow-hidden rounded">
-								<img alt="gallery"
-									class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-									src="../images/Workshops/03/4.jpg">
-							</div>
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-1/2">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/3.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/24.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/16.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-1/2">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/9.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-1/2">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110 "
-								src="../images/Workshops/03/10.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="md:p-2 p-1 w-full">
-					<div class="overflow-hidden rounded">
-
-						<img alt="gallery"
-							class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-							src="../images/Workshops/03/23.jpg">
-					</div>
-				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/11.jpg">
-						</div>
-					</div>
-
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/14.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/12.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/17.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/21.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/13.jpg">
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-wrap w-1/2">
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/19.jpg">
-						</div>
-					</div>
-					<div class="md:p-2 p-1 w-full">
-						<div class="overflow-hidden rounded">
-
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/03/15.jpg">
-						</div>
-					</div>
-
+			</div>
+			<br>
+			<!-- Students Carousel -->
+			<div id="workshop-splide" class="splide" aria-label="Workshop Gallery" x-data x-init="
+        new Splide($el, {
+          type   : 'slide',
+          drag   : 'free',
+          perPage: 3,
+          interval: 3000,
+          gap    : '1rem',
+          autoplay: true,
+          pagination: true,
+ breakpoints: {
+        640: { perPage: 1 } // <= 640px (mobile) show 1 item
+      }
+        }).mount()
+      ">
+				<div class="splide__track">
+					<ul class="splide__list">
+						<li class="splide__slide"><img src='../images/Workshops/03/13.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/14.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/15.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/16.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/17.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/18.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/19.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/21.jpg' class="rounded-lg"></li>
+						<li class="splide__slide"><img src='../images/Workshops/03/22.jpg' class="rounded-lg"></li>
+					</ul>
 				</div>
 			</div>
 		</div>
