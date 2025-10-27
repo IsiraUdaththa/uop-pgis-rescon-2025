@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RESCON | PGIS</title>
+	<!-- Tailwind CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Alpine.js CDN -->
+	<script src="//unpkg.com/alpinejs" defer></script>
+
+	<!-- Splide JS -->
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+	<!-- Splide CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+	</style>
+</head>
+
+<body class="bg-white text-white">
+	<!-- Banner -->
+	<div x-data="{ show: true }" x-show="show" x-transition class="fixed inset-x-0 bottom-0 z-[9999] flex items-center justify-between border-t border-gray-200 bg-amber-200 px-4 py-2 text-gray-900">
+		<span></span>
+
+		<p class="text-center font-medium">
+			Announcing our 4<sup>th</sup> Pre-Conference Talk.
+			<a href="#" class="inline-block underline"> Read More</a>
+		</p>
+
+		<button type="button" aria-label="Dismiss" @click="show = false" class="rounded border border-gray-300 bg-white p-1.5 shadow-sm transition-colors hover:bg-gray-50">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</div>
+
+	<!-- Navigation Bar -->
+	<header class="sticky top-0 z-50 mx-auto max-w-5xl rounded-2xl bg-white/60 backdrop-blur-md shadow-md border border-gray-200 mt-4" x-data="{ mobileMenuOpen: false }">
+		<nav class="flex items-center justify-between px-4 py-2">
+			<!-- Logo -->
+			<div class="flex items-center">
+				<a href="../" class="p-1">
+					<img src="../images/logo.png" alt="Logo" class="h-10 w-auto">
+				</a>
+			</div>
+
+			<!-- Desktop Nav Links (hidden on mobile) -->
+			<div class="hidden md:flex gap-x-8 mx-auto">
+				<a href="../#about" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
+				<a href="../guidelines" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Guidelines</a>
+				<a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Workshops</a>
+				<a href="../rescon2024" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">RESCON·2024</a>
+				<a href="../speakers" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Speakers</a>
+				<a href="../#committee" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Committee</a>
+				<a href="../#footer" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
+			</div>
+
+			<!-- Mobile Hamburger Menu Button -->
+			<div class="md:hidden">
+				<button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg transition-colors duration-200" :aria-expanded="mobileMenuOpen" aria-label="Toggle mobile menu">
+					<!-- Hamburger Icon -->
+					<div class="w-6 h-6 flex flex-col justify-center items-center">
+						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300" :class="mobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'"></span>
+						<span class="block w-5 h-0.5 bg-current transition-all duration-300" :class="mobileMenuOpen ? 'opacity-0' : 'opacity-100'"></span>
+						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300" :class="mobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'"></span>
+					</div>
+				</button>
+			</div>
+		</nav>
+
+		<!-- Mobile Menu Dropdown -->
+		<div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden  rounded-b-2xl" @click.away="mobileMenuOpen = false">
+			<div class="px-4 py-4 space-y-3">
+				<a href="../#about" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					About
+				</a>
+				<a href="../guidelines" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					Guidelines
+				</a>
+				<a href="#" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					Workshops
+				</a>
+				<a href="../rescon2024/" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					RESCON·2024
+				</a>
+				<a href="../speakers" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					Speakers
+				</a>
+				<a href="../#committee" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					Committee
+				</a>
+				<a href="../#footer" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
+					Contact
+				</a>
+			</div>
+		</div>
+	</header>
+
+
+
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#fff7ed_0%,_transparent_60%)] pointer-events-none -z-10">
+	</div>
+
+	<!-- Guidelines -->
+	<section id="guidelines" class="overflow-hidden  py-24 ">
+		<div class="mx-auto max-w-5xl px-6 lg:px-8">
+			<div class="mx-auto  max-w-2xl  lg:mx-0 lg:max-w-none ">
+				<h2 class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-gray-900">Abstract Submission Guidelines</h2>
+				<p class="mt-6  text-gray-600">
+
+					Abstract submission will start on the 10<sup>th</sup> April of 2025 and end on <b class="underline decoration-2 decoration-amber-500">30<sup>th</sup> June
+						of 2025.</b>
+					Notification of Acceptance will be sent on 30<sup>th</sup> July of 2025 .
+				</p>
+				<p class="mt-6  text-gray-600">
+					Please read the General Guidelines carefully, and make sure to use the templates provided for both
+					the
+					abstract and the extended abstract.
+					We are committed to hosting the conference in-person and requests for online presentations will be
+					considered
+					under special circumstances, particularly for international presenters.
+				</p>
+
+				<div x-data="{ tab: 1 }" class=" w-full py-10 flex flex-wrap flex-col text-gray-600">
+
+					<!-- Tabs -->
+					<div class="flex mx-auto mb-5 justify-between w-full">
+						<button @click="tab = 1" :class="tab === 1 ? 'border-amber-500 text-amber-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'" class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							General Guidelines
+						</button>
+						<button @click="tab = 2" :class="tab === 2 ? 'border-amber-500 text-amber-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'" class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Templates
+						</button>
+						<button @click="tab = 3" :class="tab === 3 ? 'border-amber-500 text-amber-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'" class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Submit an Abstract
+						</button>
+					</div>
+
+
+					<!-- Content 1 -->
+					<div x-show="tab === 1" >
+						<p>Please read the abstract submission
+							guidelines below. Since we get more than 200 abstracts for each RESCON, we want to
+							streamline the process so that it is easier for the reviewers.</p>
+						<p class="pt-5">For RESCON 2024, we will process the
+							submitted abstract and make sure they are ready for review process, this will be done by our
+							editorial assistants.</p>
+						<div class="text-center">
+							<a href="docs/General guidelines.pdf" class="inline-block px-4 py-2 border border-slate-200 rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200  mt-4  w-full">
+								Abstract Guidelines
+							</a>
+							<a href="docs/Submission checklist.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Submission Checklist
+							</a>
+							<a href="docs/Author declaration form.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Author Declaration Form
+							</a>
+						</div>
+					</div>
+
+					<!-- Content 2 -->
+					<div x-show="tab === 2">
+						<p>Download the official abstract and poster
+							templates here.</p>
+						<div class="text-center">
+							<a href="docs/Abstract template.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Abstract Template
+							</a>
+							<a href="docs/Extended abstract template.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Extended Abstract Template
+							</a>
+							<a href="docs/Camera ready guidelines.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Camera Ready Guidelines
+							</a>
+							<a href="docs/Camera ready template.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Camera Ready Template
+							</a>
+						</div>
+					</div>
+
+					<!-- Content 3 -->
+					<div x-show="tab === 3">
+						<p>Use the portal below to submit your
+							abstract. You will receive a confirmation email after submission.</p>
+						<ul role="list" class="py-8 space-y-2 text-gray-600">
+							<li class="flex gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-checks">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M7 12l5 5l10 -10" />
+									<path d="M2 12l5 5m5 -5l5 -5" />
+								</svg>
+
+								<span> You have the abstract with you as an MS Word document prepared according to the
+									template.</span>
+							</li>
+							<li class="flex gap-x-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-checks">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M7 12l5 5l10 -10" />
+									<path d="M2 12l5 5m5 -5l5 -5" />
+								</svg>
+
+								<span>You have the extended abstract with you as an MS Word document prepared according
+									to the template.</span>
+							</li>
+
+						</ul>
+						<div class="text-center border-t-2 ">
+							<a href="https://cmt3.research.microsoft.com/RESCON2025" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Submit an Abstract
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- Presentation Guidelines -->
+	<section id="guidelines" class="overflow-hidden  py-24 border-t border-gray-200">
+		<div class="mx-auto max-w-5xl px-6 lg:px-8">
+			<div class="mx-auto  max-w-2xl  lg:mx-0 lg:max-w-none ">
+				<h2 class="mt-2 text-3xl font-semibold tracking-tight text-pretty text-gray-900">Presentation Guidelines</h2>
+				<p class="mt-6 text-gray-600">
+					Please refer to the following instructions to prepare your presentation according to RESCON 2025 standards. Make sure to read the relevant section carefully and follow all requirements for submission, formatting, and presentation.
+				</p>
+				<p class="pt-5 text-gray-600"> Adhering to these guidelines will help ensure a smooth and professional presentation experience.</p>
+
+				<div x-data="{ tab: 1 }" class=" w-full py-10 flex flex-wrap flex-col text-gray-600">
+
+					<!-- Tabs -->
+					<div class="flex mx-auto mb-5 justify-between w-full">
+						<button @click="tab = 1" :class="tab === 1 ? 'border-amber-500 text-amber-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'" class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Poster Presentation Guidelines
+						</button>
+						<button @click="tab = 2" :class="tab === 2 ? 'border-amber-500 text-amber-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'" class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Oral Presentation Guidelines
+						</button>
+						<button @click="tab = 3" :class="tab === 3 ? 'border-amber-500 text-amber-500 bg-gray-100' : 'border-gray-200 hover:text-gray-900'" class="py-3 w-full border-b-2 title-font font-medium inline-flex items-center justify-center leading-none tracking-wider rounded-t">
+							Conference Logo
+						</button>
+					</div>
+
+
+					<!-- Content 1 -->
+					<div x-show="tab === 1">
+						<p>Use these guidelines to design and present your poster according to RESCON 2025 requirements. The document outlines specifications for size, layout, and content structure, as well as expectations for presenters during the poster session.</p>
+						<p class="pt-5">Proper preparation will ensure your poster is clear, engaging, and meets the conference' s display standards.</p>
+						<div class="text-center">
+							<a href="../docs/General_and_Oral_Presentations_RESCON2025.pdf" class="inline-block px-4 py-2 border border-slate-200 rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200  mt-4  w-full">
+								Poster Presentation Guidelines
+							</a>
+						</div>
+					</div>
+
+					<!-- Content 2 -->
+					<div x-show="tab === 2">
+						<p>Follow these guidelines to prepare your oral presentation effectively. Instructions include details on slide formatting, submission procedures, timing, attire, and session etiquette.</p>
+						<p class="pt-5">Presenters are expected to arrive early, stay for the full session, and maintain professionalism throughout their presentation.</p>
+						<div class="text-center">
+							<a href="../docs/General_and_Oral_Presentations_RESCON2025.pdf" class="inline-block px-4 py-2 border border-slate-200  rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Author Guidelines & Oral Presentation Guidelines
+							</a>
+						</div>
+					</div>
+
+					<!-- Content 3 -->
+					<div x-show="tab === 3">
+						<p>Use the official RESCON 2025 logo in all presentation materials to maintain visual consistency across the conference. Ensure the logo is placed in the correct position, maintains its original proportions, and is not altered in color or design. The logo should appear clearly and professionally on slides and posters.</p>
+						<div class="text-center">
+							<a href="../images/RESCON2025_Logo.png" download="RESCON2025_Logo.png" class="inline-block px-4 py-2 border border-slate-200 rounded bg-gray-50 hover:bg-gray-200 transition-colors duration-200 mt-4 w-full">
+								Download Conference Logo
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer" class="bg-white text-gray-600 body-font border-t border-gray-200 ">
+		<div class="border-t border-gray-200 max-w-5xl mx-auto">
+			<div class="container px-5 py-8 ">
+				<div class="flex flex-col sm:flex-row w-full justify-between">
+					<div class="flex flex-col gap-4 w-full sm:w-3/5">
+						<div class="w-full sm:w-3/5">
+							<h2 class="text-2xl text-gray-600 mb-3">Contact Us</h2>
+							<div class="flex flex-col gap-2 text-sm text-gray-600">
+								<div class="flex items-center gap-2">
+									<!-- Phone Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M6.62 10.79a15.72 15.72 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11z" />
+									</svg>
+									+94 81 231 2796 (Congress Office)
+								</div>
+
+								<div class="flex items-center gap-2">
+									<!-- Home Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+									</svg>
+									Postgraduate Institute of Science, Peradeniya, 20400
+								</div>
+
+								<div class="flex items-center gap-2">
+									<!-- Email Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+									</svg>
+									rescon2025@pgis.lk
+								</div>
+
+								<div class="flex items-center gap-2">
+									<!-- Email Icon -->
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+									</svg>
+									gajaba.ellepola@sci.pdn.ac.lk (Congress Secretary)
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="border-t border-gray-200 ">
+			<div class="container py-8 flex flex-wrap mx-auto items-center max-w-5xl mx-auto">
+				<div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+					<p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">
+						The Microsoft CMT service was used for managing the peer-reviewing process for this
+						conference.
+						This
+						service was provided for free by Microsoft and they bore all expenses, including costs for
+						Azure
+						cloud
+						services as well as for software development and support.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bg-gray-100">
+			<div class="container  py-6 mx-auto flex items-center sm:flex-row flex-col max-w-5xl mx-auto">
+				<p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
+					© 2024 All Rights Reserved
+					<a href="https://www.pgis.lk" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@
+						www.pgis.lk</a>
+				</p>
+				<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a href="https://www.facebook.com/Postgraduate-Institute-of-Science-University-of-Peradeniya-Sri-Lanka-123380532393978" class="text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+							<path fill="#838383" stroke-miterlimit="10" d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h16.832a1 1 0 0 0 .326 0h5.674a1 1 0 0 0 .326 0H41c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3h-8V30h3.82l1.4-7H33v-2c0-.557.053-.601.24-.723.187-.121.766-.277 1.76-.277h3v-5.63l-.57-.272S35.133 13 32 13c-2.25 0-4.098.896-5.281 2.375C25.536 16.854 25 18.833 25 21v2h-3v7h3v14H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm23 9c2.08 0 3.387.458 4 .701V18h-1c-1.15 0-2.073.095-2.85.6-.776.504-1.15 1.461-1.15 2.4v4h4.78l-.6 3H31v16h-4V28h-3v-3h3v-4c0-1.833.464-3.354 1.281-4.375S30.25 15 32 15z" style="mix-blend-mode:normal" transform="scale(5.12)" />
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+							<path fill="#838383" stroke-miterlimit="10"
+								d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h32c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm6 2c.414 1.013 2.402 5.381 3 6.994V19h2v-4l3-7h-2.4L19 12l-1.6-4zm10 3c-1.006 0-1.771.275-2.332.945-.433.495-.666 1.29-.666 2.336L22 15.727c0 1.04.206 1.76.639 2.252C23.2 18.646 24.11 19 25 19c.889 0 1.816-.354 2.379-1.023.426-.49.621-1.21.621-2.25v-1.452c0-1.048-.242-1.835-.668-2.33C26.77 11.275 25.889 11 25 11zm4 0v5.838c0 .66.098 1.108.238 1.396.23.473.69.716 1.352.737.91.03 1.595-.561 2.41-1.346V19h2v-8h-2v5.375c-.455.539-.979 1.018-1.39 1.018-.274 0-.56-.126-.61-.393v-6zm-4 1.62c.552 0 1 .457 1 1.02v2.807c0 .563-.448 1.022-1 1.022s-1-.458-1-1.022v-2.806c0-.563.448-1.022 1-1.022zM24.99 22s-6.71 0-11.19.32c-.63.07-1.99.08-3.21 1.33-.96.94-1.27 3.1-1.27 3.1S9 28.28 9 30.81v2.37c0 2.53.32 4.06.32 4.06s.31 2.16 1.27 3.11c1.22 1.24 2.82 1.2 3.53 1.33C16.68 41.92 25 42 25 42s6.72-.01 11.2-.33c.63-.07 1.99-.08 3.21-1.33.96-.94 1.27-3.1 1.27-3.1s.32-1.53.32-4.06v-2.37c0-2.53-.32-4.06-.32-4.06s-.31-2.16-1.27-3.1c-1.22-1.25-2.58-1.26-3.21-1.33C31.72 22 25.01 22 25.01 22zM12 26h6v2h-2v10h-2V28h-2zm13 0h2v4.38c.75-.88 1.15-1.39 2.12-1.38.76.01 1.37.44 1.62 1.22.13.42.26 1.17.26 2.16v2.75c-.01.88-.1 1.27-.22 1.69-.25.78-.9 1.18-1.66 1.18-.67 0-1.49-.47-2.12-1.25V38h-2zm-7 3h2v6.89c.05.29.26.4.52.4.4 0 1.04-.44 1.48-1.02V29h2v9h-2v-1.37c-.79.86-1.73 1.37-2.46 1.37-.64 0-1.09-.279-1.31-.789-.13-.32-.23-.802-.23-1.522zm17.03 0c.99 0 1.78.32 2.33.92.41.44.64 1.12.64 2.06V34h-4v1.8c0 .46.45.84 1 .84s1-.38 1-.84V35h2c0 .51-.06.94-.07 1.1-.07.35-.229.67-.469.95-.54.64-1.35.95-2.38.95-1.04 0-1.822-.3-2.392-.9-.42-.43-.689-1.09-.689-2.02v-3.06c0-.94.24-1.66.67-2.1.57-.6 1.35-.92 2.36-.92zM35 30.45c-.55 0-1 .37-1 .84v1.32h2v-1.32c0-.47-.45-.84-1-.84zm-6.78.3c-.154 0-.38.078-.607.195a2.92 2.92 0 0 0-.332.201 2.162 2.162 0 0 0-.281.235v4.369c.08.08.176.154.281.219.316.194.707.31.94.31.202 0 .36-.049.482-.168a.66.66 0 0 0 .11-.142c.063-.11.11-.254.14-.436.031-.181.047-.401.047-.664v-2.738c0-.263-.016-.482-.047-.66-.062-.357-.186-.558-.383-.653a.799.799 0 0 0-.35-.068z"
+								style="mix-blend-mode:normal" transform="scale(5.12)" />
+						</svg>
+					</a>
+					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
+
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+							<path fill="#848484" transform="scale(0.6)" d="M41 7c5.242 5.12 7.792 10.974 8.098 18.363-.514 7.249-3.118 13.138-8.535 18.012-5.598 4.376-11.759 6.138-18.868 5.379-6.927-1.318-12.179-4.263-16.59-9.93C1.625 33.081.326 26.768 1.434 20.16 3.324 12.954 6.866 8.205 13 4c2.563-1.313 2.563-1.313 5-2l2.625-.75C28.085.697 35.234 2.057 41 7ZM22 5c-3.303 3.452-3.303 3.452-4 8h6V5h-2Zm4 0v8h6c-.597-3.342-1.736-5.464-4-8h-2ZM14 7c-1.637 1.96-1.637 1.96-3 4l4 1 1-5h-2Zm20 0 1 5 4-2c-1.375-1.542-1.375-1.542-3-3h-2ZM8 13c-2.153 3.858-3.393 6.551-3 11h8v-9l-5-2Zm33 0-4 2v9h8c-.23-5.39-.23-5.39-2.563-10L41 13Zm-25 3v8h8v-8h-8Zm10 0v8h8v-8h-8ZM5 26c.23 5.39.23 5.39 2.563 10L9 37l4-2v-9H5Zm11 0v8h8v-8h-8Zm10 0v8h8v-8h-8Zm11 0v9l5 2c2.153-3.858 3.393-6.551 3-11h-8ZM18 37c.597 3.342 1.736 5.464 4 8h2v-8h-6Zm8 0v8c3.161-1.37 3.993-1.99 6-5v-3h-6Zm-13 1-2 2c1.375 1.542 1.375 1.542 3 3h2l-1-5h-2Zm22 0-1 5c3.122-1.309 3.122-1.309 5-4l-4-1Z" />
+						</svg>
+					</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
