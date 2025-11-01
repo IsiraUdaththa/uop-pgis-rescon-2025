@@ -24,8 +24,7 @@
 
 <body class="bg-white text-white">
 	<!-- Banner -->
-	<div x-data="{ show: true }" x-show="show" x-transition
-		class="fixed inset-x-0 bottom-0 z-[9999] flex items-center justify-between border-t border-gray-200 bg-amber-200 px-4 py-2 text-gray-900">
+	<div x-data="{ show: true }" x-show="show" x-transition class="fixed inset-x-0 bottom-0 z-[9999] flex items-center justify-between border-t border-gray-200 bg-amber-200 px-4 py-2 text-gray-900">
 		<span></span>
 
 		<p class="text-center font-medium">
@@ -33,19 +32,15 @@
 			<a href="../#themes" class="inline-block underline"> Read More</a>
 		</p>
 
-		<button type="button" aria-label="Dismiss" @click="show = false"
-			class="rounded border border-gray-300 bg-white p-1.5 shadow-sm transition-colors hover:bg-gray-50">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-				stroke="currentColor" class="size-5">
+		<button type="button" aria-label="Dismiss" @click="show = false" class="rounded border border-gray-300 bg-white p-1.5 shadow-sm transition-colors hover:bg-gray-50">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 			</svg>
 		</button>
 	</div>
 
 	<!-- Navigation Bar -->
-	<header
-		class="sticky top-0 z-50 mx-auto max-w-5xl rounded-2xl bg-white/60 backdrop-blur-md shadow-md border border-gray-200 mt-4"
-		x-data="{ mobileMenuOpen: false }">
+	<header class="sticky top-0 z-50 mx-auto max-w-5xl rounded-2xl bg-white/60 backdrop-blur-md shadow-md border border-gray-200 mt-4" x-data="{ mobileMenuOpen: false }">
 		<nav class="flex items-center justify-between px-4 py-2">
 			<!-- Logo -->
 			<div class="flex items-center">
@@ -56,86 +51,54 @@
 
 			<!-- Desktop Nav Links (hidden on mobile) -->
 			<div class="hidden md:flex gap-x-8 mx-auto">
-				<a href="../#about"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
-				<a href="../guidelines"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Guidelines</a>
-				<a href="#"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Workshops</a>
-				<a href="../rescon2024"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">RESCON·2024</a>
-				<a href="../speakers"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Speakers</a>
+				<a href="../#about" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
+				<a href="../guidelines" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Guidelines</a>
+				<a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Workshops</a>
+				<a href="../rescon2024" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">RESCON·2024</a>
+				<a href="../speakers" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Speakers</a>
 				<a href="../media" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Media Releases</a>
-				<a href="../#committee"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Committee</a>
-				<a href="../#footer"
-					class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
+				<a href="../#committee" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Committee</a>
+				<a href="../#footer" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
 			</div>
 
 			<!-- Mobile Hamburger Menu Button -->
 			<div class="md:hidden">
-				<button @click="mobileMenuOpen = !mobileMenuOpen"
-					class="p-2 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg transition-colors duration-200"
-					:aria-expanded="mobileMenuOpen" aria-label="Toggle mobile menu">
+				<button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg transition-colors duration-200" :aria-expanded="mobileMenuOpen" aria-label="Toggle mobile menu">
 					<!-- Hamburger Icon -->
 					<div class="w-6 h-6 flex flex-col justify-center items-center">
-						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300"
-							:class="mobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'"></span>
-						<span class="block w-5 h-0.5 bg-current transition-all duration-300"
-							:class="mobileMenuOpen ? 'opacity-0' : 'opacity-100'"></span>
-						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300"
-							:class="mobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'"></span>
+						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300" :class="mobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'"></span>
+						<span class="block w-5 h-0.5 bg-current transition-all duration-300" :class="mobileMenuOpen ? 'opacity-0' : 'opacity-100'"></span>
+						<span class="block w-5 h-0.5 bg-current transform transition-all duration-300" :class="mobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'"></span>
 					</div>
 				</button>
 			</div>
 		</nav>
 
 		<!-- Mobile Menu Dropdown -->
-		<div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
-			x-transition:enter-start="opacity-0 transform -translate-y-2"
-			x-transition:enter-end="opacity-100 transform translate-y-0"
-			x-transition:leave="transition ease-in duration-150"
-			x-transition:leave-start="opacity-100 transform translate-y-0"
-			x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden  rounded-b-2xl"
-			@click.away="mobileMenuOpen = false">
+		<div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="md:hidden  rounded-b-2xl" @click.away="mobileMenuOpen = false">
 			<div class="px-4 py-4 space-y-3">
-				<a href="../#about"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="../#about" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					About
 				</a>
-				<a href="../guidelines"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="../guidelines" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					Guidelines
 				</a>
-				<a href="#"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="#" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					Workshops
 				</a>
-				<a href="../rescon2024/"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="../rescon2024/" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					RESCON·2024
 				</a>
-				<a href="../speakers"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="../speakers" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					Speakers
 				</a>
 				<a href="../media" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					Media Releases
 				</a>
-				<a href="../#committee"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="../#committee" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					Committee
 				</a>
-				<a href="../#footer"
-					class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200"
-					@click="mobileMenuOpen = false">
+				<a href="../#footer" class="block text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200" @click="mobileMenuOpen = false">
 					Contact
 				</a>
 			</div>
@@ -149,8 +112,7 @@
 	</section>
 
 
-	<div
-		class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#fff7ed_0%,_transparent_60%)] pointer-events-none -z-10">
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#fff7ed_0%,_transparent_60%)] pointer-events-none -z-10">
 	</div>
 
 	<section class="text-gray-600 body-font">
@@ -195,23 +157,18 @@
 								<p class="text-lg/8 text-gray-600">
 									Venue: <b>PGIS Auditorium</b>
 								</p>
-								<a href="../images/Workshops/04/Flyer 04.jpg" target="_blank"
-									class="text-indigo-500 inline-flex items-center mt-6 ">
+								<a href="../images/Workshops/04/Flyer 04.jpg" target="_blank" class="text-indigo-500 inline-flex items-center mt-6 ">
 									See the Flyer
-									<svg fill="none" stroke="currentColor" stroke-linecap="round"
-										stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2"
-										viewBox="0 0 24 24">
+									<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
 										<path d="M5 12h14M12 5l7 7-7 7"></path>
 									</svg>
 								</a>
 
 							</div>
 							<div class="sm:w-1/3 text-center sm:pr-8 sm:py-8 sm:pl-8 sm:border-l border-gray-200 ">
-								<div
-									class="w-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+								<div class="w-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
 
-									<img class="rounded-full" src="../images/Workshops/04/Prof. Upul Wijayantha.jpg"
-										alt="">
+									<img class="rounded-full" src="../images/Workshops/04/Prof. Upul Wijayantha.jpg" alt="">
 
 								</div>
 								<div class="flex flex-col items-center text-center justify-center">
@@ -303,11 +260,9 @@
 						<div class="flex flex-wrap justify-center pt-12">
 							<!-- Card 1 -->
 							<div class="sm:w-1/3 text-center sm:pr-8 py-12 ">
-								<div
-									class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+								<div class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
 
-									<img class=" rounded-full" src="../images/Workshops/03/Prof. Susan M. Lunte.jpeg"
-										alt="">
+									<img class=" rounded-full" src="../images/Workshops/03/Prof. Susan M. Lunte.jpeg" alt="">
 
 								</div>
 								<div class="flex flex-col items-center text-center justify-center">
@@ -321,11 +276,9 @@
 
 							<!-- Card 2 -->
 							<div class="sm:w-1/3 text-center sm:pr-8 py-12 sm:pl-8 sm:border-l border-gray-200">
-								<div
-									class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+								<div class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
 
-									<img class=" rounded-full" src="../images/Workshops/03/Dr. Binodh De Silva.jpeg"
-										alt="">
+									<img class=" rounded-full" src="../images/Workshops/03/Dr. Binodh De Silva.jpeg" alt="">
 
 								</div>
 								<div class="flex flex-col items-center text-center justify-center">
@@ -340,11 +293,9 @@
 
 							<!-- Card 3 -->
 							<div class="sm:w-1/3 text-center sm:pr-8 py-12 sm:pl-8 sm:border-l border-gray-200">
-								<div
-									class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+								<div class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
 
-									<img class=" rounded-full" src="../images/Workshops/03/Dr. Gamini Dharmasena.jpeg"
-										alt="">
+									<img class=" rounded-full" src="../images/Workshops/03/Dr. Gamini Dharmasena.jpeg" alt="">
 
 								</div>
 								<div class="flex flex-col items-center text-center justify-center">
@@ -356,11 +307,9 @@
 								</div>
 							</div>
 						</div>
-						<a href="../images/Workshops/03/Flyer 3rd Workshop RESCON 2025.jpg" target="_blank"
-							class="text-indigo-500 inline-flex items-center mt-6 ">
+						<a href="../images/Workshops/03/Flyer 3rd Workshop RESCON 2025.jpg" target="_blank" class="text-indigo-500 inline-flex items-center mt-6 ">
 							See the Flyer
-							<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+							<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
 								<path d="M5 12h14M12 5l7 7-7 7"></path>
 							</svg>
 						</a>
@@ -509,19 +458,16 @@
 						<p class="text-lg/8 text-gray-600">
 							Venue: <b>PGIS Conference Hall</b>
 						</p>
-						<a href="../images/Workshops/02/talk2.jpg" target="_blank"
-							class="text-indigo-500 inline-flex items-center mt-6 ">
+						<a href="../images/Workshops/02/talk2.jpg" target="_blank" class="text-indigo-500 inline-flex items-center mt-6 ">
 							See the Flyer
-							<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+							<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
 								<path d="M5 12h14M12 5l7 7-7 7"></path>
 							</svg>
 						</a>
 
 					</div>
 					<div class="sm:w-1/3 text-center sm:pr-8 sm:py-12 sm:pl-8 sm:border-l border-gray-200 ">
-						<div
-							class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+						<div class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
 
 							<img class=" rounded-full" src="../images/Workshops/02/AjithKarunarathna.jpg" alt="">
 
@@ -547,26 +493,20 @@
 					<div class="md:p-2 p-1 w-1/2 ">
 						<div class="overflow-hidden rounded">
 							<div class="overflow-hidden rounded">
-								<img alt="gallery"
-									class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-									src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_8.jpg">
+								<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_8.jpg">
 							</div>
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-1/2">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_1.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_1.jpg">
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_2.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_2.jpg">
 						</div>
 					</div>
 				</div>
@@ -574,25 +514,19 @@
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_3.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_3.jpg">
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-1/2">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_6.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_6.jpg">
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-1/2">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110 "
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_5.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110 " src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_5.jpg">
 						</div>
 					</div>
 				</div>
@@ -600,9 +534,7 @@
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_4.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_4.jpg">
 						</div>
 					</div>
 				</div>
@@ -610,9 +542,7 @@
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_7.jpg">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/02/PHOTO-2025-07-02-20-56-26_7.jpg">
 						</div>
 					</div>
 				</div>
@@ -672,19 +602,16 @@
 						<p class="text-lg/8 text-gray-600">
 							Venue: <b>PGIS Auditorium</b>
 						</p>
-						<a href="../images/Workshops/01/Workshop Flyer 1.jpg" target="_blank"
-							class="text-indigo-500 inline-flex items-center mt-6 ">
+						<a href="../images/Workshops/01/Workshop Flyer 1.jpg" target="_blank" class="text-indigo-500 inline-flex items-center mt-6 ">
 							See the Flyer
-							<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+							<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
 								<path d="M5 12h14M12 5l7 7-7 7"></path>
 							</svg>
 						</a>
 
 					</div>
 					<div class="sm:w-1/3 text-center sm:pr-8 sm:py-8 sm:pl-8 sm:border-l border-gray-200 ">
-						<div
-							class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
+						<div class="w-40 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
 
 							<img class="rounded-full" src="../images/Workshops/01/Thiruma-Arumugam.jpg" alt="">
 
@@ -708,26 +635,20 @@
 					<div class="md:p-2 p-1 w-1/2 ">
 						<div class="overflow-hidden rounded">
 							<div class="overflow-hidden rounded">
-								<img alt="gallery"
-									class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-									src="../images/Workshops/01/157A5687.JPG">
+								<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5687.JPG">
 							</div>
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-1/2">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/01/157A5712.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5712.JPG">
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/01/157A5721.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5721.JPG">
 						</div>
 					</div>
 				</div>
@@ -735,25 +656,19 @@
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/01/157A5739.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5739.JPG">
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-1/2">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/01/157A5740.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5740.JPG">
 						</div>
 					</div>
 					<div class="md:p-2 p-1 w-1/2">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110 "
-								src="../images/Workshops/01/157A5746.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110 " src="../images/Workshops/01/157A5746.JPG">
 						</div>
 					</div>
 				</div>
@@ -761,9 +676,7 @@
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/01/157A5748.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5748.JPG">
 						</div>
 					</div>
 				</div>
@@ -771,9 +684,7 @@
 					<div class="md:p-2 p-1 w-full">
 						<div class="overflow-hidden rounded">
 
-							<img alt="gallery"
-								class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110"
-								src="../images/Workshops/01/157A5752.JPG">
+							<img alt="gallery" class="w-full object-cover h-full object-center block transition-transform duration-300 hover:scale-110" src="../images/Workshops/01/157A5752.JPG">
 						</div>
 					</div>
 				</div>
@@ -792,8 +703,7 @@
 								<div class="flex items-center gap-2">
 									<!-- Phone Icon -->
 									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-										<path
-											d="M6.62 10.79a15.72 15.72 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11z" />
+										<path d="M6.62 10.79a15.72 15.72 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11z" />
 									</svg>
 									+94 81 231 2796 (Congress Office)
 								</div>
@@ -809,8 +719,7 @@
 								<div class="flex items-center gap-2">
 									<!-- Email Icon -->
 									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-										<path
-											d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+										<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
 									</svg>
 									rescon2025@pgis.lk
 								</div>
@@ -818,8 +727,7 @@
 								<div class="flex items-center gap-2">
 									<!-- Email Icon -->
 									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-										<path
-											d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+										<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
 									</svg>
 									gajaba.ellepola@sci.pdn.ac.lk (Congress Secretary)
 								</div>
@@ -852,12 +760,9 @@
 						www.pgis.lk</a>
 				</p>
 				<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-					<a href="https://www.facebook.com/Postgraduate-Institute-of-Science-University-of-Peradeniya-Sri-Lanka-123380532393978"
-						class="text-gray-500">
+					<a href="https://www.facebook.com/Postgraduate-Institute-of-Science-University-of-Peradeniya-Sri-Lanka-123380532393978" class="text-gray-500">
 						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
-							<path fill="#838383" stroke-miterlimit="10"
-								d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h16.832a1 1 0 0 0 .326 0h5.674a1 1 0 0 0 .326 0H41c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3h-8V30h3.82l1.4-7H33v-2c0-.557.053-.601.24-.723.187-.121.766-.277 1.76-.277h3v-5.63l-.57-.272S35.133 13 32 13c-2.25 0-4.098.896-5.281 2.375C25.536 16.854 25 18.833 25 21v2h-3v7h3v14H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm23 9c2.08 0 3.387.458 4 .701V18h-1c-1.15 0-2.073.095-2.85.6-.776.504-1.15 1.461-1.15 2.4v4h4.78l-.6 3H31v16h-4V28h-3v-3h3v-4c0-1.833.464-3.354 1.281-4.375S30.25 15 32 15z"
-								style="mix-blend-mode:normal" transform="scale(5.12)" />
+							<path fill="#838383" stroke-miterlimit="10" d="M9 4C6.25 4 4 6.25 4 9v32c0 2.75 2.25 5 5 5h16.832a1 1 0 0 0 .326 0h5.674a1 1 0 0 0 .326 0H41c2.75 0 5-2.25 5-5V9c0-2.75-2.25-5-5-5zm0 2h32c1.668 0 3 1.332 3 3v32c0 1.668-1.332 3-3 3h-8V30h3.82l1.4-7H33v-2c0-.557.053-.601.24-.723.187-.121.766-.277 1.76-.277h3v-5.63l-.57-.272S35.133 13 32 13c-2.25 0-4.098.896-5.281 2.375C25.536 16.854 25 18.833 25 21v2h-3v7h3v14H9c-1.668 0-3-1.332-3-3V9c0-1.668 1.332-3 3-3zm23 9c2.08 0 3.387.458 4 .701V18h-1c-1.15 0-2.073.095-2.85.6-.776.504-1.15 1.461-1.15 2.4v4h4.78l-.6 3H31v16h-4V28h-3v-3h3v-4c0-1.833.464-3.354 1.281-4.375S30.25 15 32 15z" style="mix-blend-mode:normal" transform="scale(5.12)" />
 						</svg>
 					</a>
 					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
@@ -870,8 +775,7 @@
 					<a href="https://www.youtube.com/@postgraduateinstituteofsci640" class="ml-3 text-gray-500">
 
 						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
-							<path fill="#848484" transform="scale(0.6)"
-								d="M41 7c5.242 5.12 7.792 10.974 8.098 18.363-.514 7.249-3.118 13.138-8.535 18.012-5.598 4.376-11.759 6.138-18.868 5.379-6.927-1.318-12.179-4.263-16.59-9.93C1.625 33.081.326 26.768 1.434 20.16 3.324 12.954 6.866 8.205 13 4c2.563-1.313 2.563-1.313 5-2l2.625-.75C28.085.697 35.234 2.057 41 7ZM22 5c-3.303 3.452-3.303 3.452-4 8h6V5h-2Zm4 0v8h6c-.597-3.342-1.736-5.464-4-8h-2ZM14 7c-1.637 1.96-1.637 1.96-3 4l4 1 1-5h-2Zm20 0 1 5 4-2c-1.375-1.542-1.375-1.542-3-3h-2ZM8 13c-2.153 3.858-3.393 6.551-3 11h8v-9l-5-2Zm33 0-4 2v9h8c-.23-5.39-.23-5.39-2.563-10L41 13Zm-25 3v8h8v-8h-8Zm10 0v8h8v-8h-8ZM5 26c.23 5.39.23 5.39 2.563 10L9 37l4-2v-9H5Zm11 0v8h8v-8h-8Zm10 0v8h8v-8h-8Zm11 0v9l5 2c2.153-3.858 3.393-6.551 3-11h-8ZM18 37c.597 3.342 1.736 5.464 4 8h2v-8h-6Zm8 0v8c3.161-1.37 3.993-1.99 6-5v-3h-6Zm-13 1-2 2c1.375 1.542 1.375 1.542 3 3h2l-1-5h-2Zm22 0-1 5c3.122-1.309 3.122-1.309 5-4l-4-1Z" />
+							<path fill="#848484" transform="scale(0.6)" d="M41 7c5.242 5.12 7.792 10.974 8.098 18.363-.514 7.249-3.118 13.138-8.535 18.012-5.598 4.376-11.759 6.138-18.868 5.379-6.927-1.318-12.179-4.263-16.59-9.93C1.625 33.081.326 26.768 1.434 20.16 3.324 12.954 6.866 8.205 13 4c2.563-1.313 2.563-1.313 5-2l2.625-.75C28.085.697 35.234 2.057 41 7ZM22 5c-3.303 3.452-3.303 3.452-4 8h6V5h-2Zm4 0v8h6c-.597-3.342-1.736-5.464-4-8h-2ZM14 7c-1.637 1.96-1.637 1.96-3 4l4 1 1-5h-2Zm20 0 1 5 4-2c-1.375-1.542-1.375-1.542-3-3h-2ZM8 13c-2.153 3.858-3.393 6.551-3 11h8v-9l-5-2Zm33 0-4 2v9h8c-.23-5.39-.23-5.39-2.563-10L41 13Zm-25 3v8h8v-8h-8Zm10 0v8h8v-8h-8ZM5 26c.23 5.39.23 5.39 2.563 10L9 37l4-2v-9H5Zm11 0v8h8v-8h-8Zm10 0v8h8v-8h-8Zm11 0v9l5 2c2.153-3.858 3.393-6.551 3-11h-8ZM18 37c.597 3.342 1.736 5.464 4 8h2v-8h-6Zm8 0v8c3.161-1.37 3.993-1.99 6-5v-3h-6Zm-13 1-2 2c1.375 1.542 1.375 1.542 3 3h2l-1-5h-2Zm22 0-1 5c3.122-1.309 3.122-1.309 5-4l-4-1Z" />
 						</svg>
 					</a>
 				</span>
