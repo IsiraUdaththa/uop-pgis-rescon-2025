@@ -130,7 +130,7 @@
 							);
 						"></div>
 			</div>
-			<div class="mx-auto max-w-2xl py-32">
+			<div class="mx-auto py-32">
 				<div class="text-center">
 					<h1 class="md:text-7xl text-5xl font-semibold tracking-tight text-balance text-gray-900">
 						<span class="font-bold">RESCON</span> <span class="text-orange-500 font-bold">2025</span>
@@ -147,7 +147,48 @@
 						November 7-8, 2025
 					</p>
 
-					<div x-data="{
+					<div x-data="{ showSection: false }" x-init="
+						const now = new Date();
+						const target = new Date('2025-11-07T09:00:00');
+						showSection = now >= target;
+						" x-show="showSection">
+						<div x-data="{ playing: false, videoId: 'fe5z4ANFcFs' }" class="max-w-7xl mx-auto mt-6">
+							<button x-show="!playing" @click="playing = true" @keydown.enter.prevent="playing = true" @keydown.space.prevent="playing = true" type="button" aria-label="Play video" class="w-full aspect-video overflow-hidden rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:shadow-lg">
+								<div class="w-full h-full relative">
+									<img class="w-full h-full object-cover block" :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`" alt="YouTube video thumbnail" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'" loading="lazy" />
+									<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+									<span class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+										<svg class="w-16 h-16 drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="60" cy="60" r="48" fill="white" opacity="0.12" />
+											<path d="M48 42v36l30-18-30-18z" fill="white" />
+										</svg>
+									</span>
+									<span class="absolute left-3 bottom-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
+										Watch on YouTube
+									</span>
+								</div>
+							</button>
+							<template x-if="playing">
+								<div class="w-full aspect-video rounded-lg overflow-hidden">
+									<iframe class="w-full h-full border-0" :src="`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube video player"></iframe>
+								</div>
+							</template>
+							<noscript>
+								<div class="w-full aspect-video rounded-lg overflow-hidden">
+									<a class="flex items-center justify-center w-full h-full text-center bg-black text-white" href="https://youtu.be/${videoId}?si=zRfVSd52xlVszK8q" target="_blank" rel="noopener noreferrer">
+										Open video on YouTube
+									</a>
+								</div>
+							</noscript>
+						</div>
+					</div>
+
+					<div x-data="{ showSection: false }" x-init="
+						const now = new Date();
+						const target = new Date('2025-11-07T09:00:00');
+						showSection = target >= now;
+						" x-show="showSection">
+						<div x-data="{
 							endDate: new Date('2025-11-07T09:00:00').getTime(),
 							remainingTime: 0,
 							formatTime(time) {
@@ -163,33 +204,38 @@
 							const remainingTime = endDate - now;
 							$data.remainingTime = remainingTime > 0 ? remainingTime : 0;
 							}, 1000);
-						}">
-						<template x-if="remainingTime > 0">
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-								<template x-for="[unit, value] of Object.entries(formatTime(remainingTime))">
-									<div class="bg-white shadow-lg shadow-amber-400/40 rounded-xl p-6 transition-all duration-500 ease-in-out transform hover:scale-105">
-										<div x-text="value" class="text-4xl font-bold text-amber-600 transition duration-300 ease-in-out" x-transition:enter="transform transition duration-500" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transform transition duration-500" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"></div>
-										<div class="mt-2 text-lg capitalize text-gray-700" x-text="unit"></div>
-									</div>
-								</template>
-							</div>
-						</template>
+						}" class="max-w-2xl mx-auto mt-6">
+							<template x-if="remainingTime > 0">
+								<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+									<template x-for="[unit, value] of Object.entries(formatTime(remainingTime))">
+										<div class="bg-white shadow-lg shadow-amber-400/40 rounded-xl p-6 transition-all duration-500 ease-in-out transform hover:scale-105">
+											<div x-text="value" class="text-4xl font-bold text-amber-600 transition duration-300 ease-in-out" x-transition:enter="transform transition duration-500" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transform transition duration-500" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"></div>
+											<div class="mt-2 text-lg capitalize text-gray-700" x-text="unit"></div>
+										</div>
+									</template>
+								</div>
+							</template>
 
-						<template x-if="remainingTime <= 0">
-							<div class="text-2xl font-semibold text-red-500 animate-pulse">
-								<!-- Countdown has ended! -->
-							</div>
-						</template>
+							<template x-if="remainingTime <= 0">
+								<div class="text-2xl font-semibold text-red-500 animate-pulse">
+									<!-- Countdown has ended! -->
+								</div>
+							</template>
+						</div>
+
+
+
+						<div class="mt-12">
+							<p class="text-xl font-semibold text-gray-800">
+								Don't miss out—RESCON 2025 registration is now open!
+							</p>
+							<a href="https://forms.gle/PM23kQ7xiRV97ytZ7" target="_blank" class="inline-block mt-6 px-6 py-3 text-lg font-semibold text-white bg-orange-500 rounded-2xl shadow-md hover:bg-orange-600 transition-all duration-300">
+								Register Now
+							</a>
+						</div>
 					</div>
 
-					<div class="mt-12">
-						<p class="text-xl font-semibold text-gray-800">
-							Don't miss out—RESCON 2025 registration is now open!
-						</p>
-						<a href="https://forms.gle/PM23kQ7xiRV97ytZ7" target="_blank" class="inline-block mt-6 px-6 py-3 text-lg font-semibold text-white bg-orange-500 rounded-2xl shadow-md hover:bg-orange-600 transition-all duration-300">
-							Register Now
-						</a>
-					</div>
+
 
 					<div class="mt-24"></div>
 
@@ -209,6 +255,8 @@
 
 				</div>
 			</div>
+
+
 			<div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
 				<div class="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75" style="
 							clip-path: polygon(

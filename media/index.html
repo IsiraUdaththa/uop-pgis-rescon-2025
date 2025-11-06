@@ -127,7 +127,7 @@
                     <div x-data="{ playing: false, videoId: 'fe5z4ANFcFs' }" class="w-full mx-auto mt-6">
                         <button x-show="!playing" @click="playing = true" @keydown.enter.prevent="playing = true" @keydown.space.prevent="playing = true" type="button" aria-label="Play video" class="w-full aspect-video overflow-hidden rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:shadow-lg">
                             <div class="w-full h-full relative">
-                                <img class="w-full h-full object-cover block" :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`" alt="YouTube video thumbnail" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/fe5z4ANFcFs/hqdefault.jpg'" loading="lazy" />
+                                <img class="w-full h-full object-cover block" :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`" alt="YouTube video thumbnail" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'" loading="lazy" />
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
                                 <span class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
                                     <svg class="w-16 h-16 drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +147,7 @@
                         </template>
                         <noscript>
                             <div class="w-full aspect-video rounded-lg overflow-hidden">
-                                <a class="flex items-center justify-center w-full h-full text-center bg-black text-white" href="https://youtu.be/fe5z4ANFcFs?si=zRfVSd52xlVszK8q" target="_blank" rel="noopener noreferrer">
+                                <a class="flex items-center justify-center w-full h-full text-center bg-black text-white" href="https://youtu.be/${videoId}?si=zRfVSd52xlVszK8q" target="_blank" rel="noopener noreferrer">
                                     Open video on YouTube
                                 </a>
                             </div>
