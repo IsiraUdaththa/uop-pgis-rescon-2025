@@ -147,41 +147,6 @@
 						November 7-8, 2025
 					</p>
 
-					<div x-data="{ showSection: false }" x-init="
-						const now = new Date();
-						const target = new Date('2025-11-07T09:00:00');
-						showSection = now >= target;
-						" x-show="showSection">
-						<div x-data="{ playing: false, videoId: '2RRaiLYPNPs' }" class="max-w-7xl mx-auto mt-6">
-							<button x-show="!playing" @click="playing = true" @keydown.enter.prevent="playing = true" @keydown.space.prevent="playing = true" type="button" aria-label="Play video" class="w-full aspect-video overflow-hidden rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:shadow-lg">
-								<div class="w-full h-full relative">
-									<img class="w-full h-full object-cover block" :src="`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`" alt="YouTube video thumbnail" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'" loading="lazy" />
-									<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
-									<span class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-										<svg class="w-16 h-16 drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="60" cy="60" r="48" fill="white" opacity="0.12" />
-											<path d="M48 42v36l30-18-30-18z" fill="white" />
-										</svg>
-									</span>
-									<span class="absolute left-3 bottom-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
-										Watch on YouTube
-									</span>
-								</div>
-							</button>
-							<template x-if="playing">
-								<div class="w-full aspect-video rounded-lg overflow-hidden">
-									<iframe class="w-full h-full border-0" :src="`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube video player"></iframe>
-								</div>
-							</template>
-							<noscript>
-								<div class="w-full aspect-video rounded-lg overflow-hidden">
-									<a class="flex items-center justify-center w-full h-full text-center bg-black text-white" href="https://youtu.be/${videoId}?si=zRfVSd52xlVszK8q" target="_blank" rel="noopener noreferrer">
-										Open video on YouTube
-									</a>
-								</div>
-							</noscript>
-						</div>
-					</div>
 
 					<div x-data="{ showSection: false }" x-init="
 						const now = new Date();

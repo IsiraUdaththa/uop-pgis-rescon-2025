@@ -115,12 +115,48 @@
             <div class="mx-auto max-w-5xl -mb-10">
                 <!-- ITN Pini Viyana Feature -->
                 <div class="mb-10 px-4">
-                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Featured on ITN Pini Viyana</h2>
+                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">RESCON 2025 Inauguration Live-Stream</h2>
+                    <p class="leading-relaxed text-base mb-6">
+                        Watch the full RESCON 2025 inauguration on YouTube.
+                    </p>
+
+                    <!-- YouTube Video Player -->
+                    <div x-data="{ playing: false, videoId: '2RRaiLYPNPs' }" class="max-w-7xl mx-auto mt-6">
+                        <button x-show="!playing" @click="playing = true" @keydown.enter.prevent="playing = true" @keydown.space.prevent="playing = true" type="button" aria-label="Play video" class="w-full aspect-video overflow-hidden rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:shadow-lg">
+                            <div class="w-full h-full relative">
+                                <img class="w-full h-full object-cover block" :src="`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`" alt="YouTube video thumbnail" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'" loading="lazy" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+                                <span class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+                                    <svg class="w-16 h-16 drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="60" cy="60" r="48" fill="white" opacity="0.12" />
+                                        <path d="M48 42v36l30-18-30-18z" fill="white" />
+                                    </svg>
+                                </span>
+                                <span class="absolute left-3 bottom-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
+                                    Watch on YouTube
+                                </span>
+                            </div>
+                        </button>
+                        <template x-if="playing">
+                            <div class="w-full aspect-video rounded-lg overflow-hidden">
+                                <iframe class="w-full h-full border-0" :src="`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube video player"></iframe>
+                            </div>
+                        </template>
+                        <noscript>
+                            <div class="w-full aspect-video rounded-lg overflow-hidden">
+                                <a class="flex items-center justify-center w-full h-full text-center bg-black text-white" href="https://youtu.be/${videoId}?si=zRfVSd52xlVszK8q" target="_blank" rel="noopener noreferrer">
+                                    Open video on YouTube
+                                </a>
+                            </div>
+                        </noscript>
+                    </div>
+                </div>
+
+                <!-- ITN Pini Viyana Feature -->
+                <div class="mb-10 px-4">
+                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">RESCON 2025 Featured on ITN Pini Viyana</h2>
                     <p class="leading-relaxed text-base mb-6">
                         A special segment from the ITN program <b>Pini Viyana</b> featuring the organizing committee of the RESCON 2025 Scientific Research Conference from the Post Graduate Institute of Science (PGIS), University of Peradeniya.
-                    </p>
-                    <p class="leading-relaxed text-base mb-6">
-                        The discussion highlights the conference's theme, <b>Synergy in Science</b>, and its focus on research in AI, industry applications, and other key scientific domains.
                     </p>
 
                     <!-- YouTube Video Player -->
@@ -155,9 +191,50 @@
                     </div>
                 </div>
 
+                <!-- Siyatha TV -->
+                <div class="mb-10 px-4">
+                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">RESCON 2025 Featured on Siyatha TV News</h2>
+
+                    <!-- Local Video Player -->
+                    <div x-data="{ playing: false }" class="w-full mx-auto mt-6">
+                        <button x-show="!playing" @click="playing = true" @keydown.enter.prevent="playing = true" @keydown.space.prevent="playing = true" type="button" aria-label="Play video" class="w-full aspect-video overflow-hidden rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all hover:shadow-lg">
+                            <div class="w-full h-full relative">
+                                <img class="w-full h-full object-cover block" src="../images/RESCON 2025 Siyatha.jpg" alt="Video thumbnail" loading="lazy" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+                                <span class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+                                    <svg class="w-16 h-16 drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="60" cy="60" r="48" fill="white" opacity="0.12" />
+                                        <path d="M48 42v36l30-18-30-18z" fill="white" />
+                                    </svg>
+                                </span>
+                                <span class="absolute left-3 bottom-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full pointer-events-none">
+                                    Watch Video
+                                </span>
+                            </div>
+                        </button>
+                        <template x-if="playing">
+                            <div class="w-full aspect-video rounded-lg overflow-hidden">
+                                <video class="w-full h-full" controls autoplay>
+                                    <source src="/images/RESCON 2025 Siyatha.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </template>
+                        <noscript>
+                            <div class="w-full aspect-video rounded-lg overflow-hidden">
+                                <video class="w-full h-full" controls>
+                                    <source src="/images/RESCON 2025 Siyatha.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </noscript>
+                    </div>
+                </div>
+
+
                 <!-- Newspaper Article -->
                 <div class="mb-10 px-4 border-t border-gray-200 pt-10">
-                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">RESCON 2025 Featured in The Daily</h2>
+                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">RESCON 2025 Featured in The Daily Morning</h2>
                     <p class="leading-relaxed mb-6">
                         <em>The Daily Morning</em> highlighted how RESCON 2025 bridges the gap between theoretical research and practical applications, featuring perspectives from the organizers on promoting scientific innovation.
                     </p>
